@@ -159,16 +159,16 @@ section[id] {
   border-color: var(--line);
 }
 
-/* Light-green detail buttons only in the homepage product cards. */
+/* Dark, restrained detail buttons in the homepage product cards. */
 #solutions .card .btn {
-  background: #B7D75B;
-  border-color: #B7D75B;
-  color: #263414;
+  background: #657823;
+  border-color: #657823;
+  color: #fff;
 }
 
 #solutions .card .btn:hover {
-  background: #A8C94C;
-  border-color: #A8C94C;
+  background: #56671E;
+  border-color: #56671E;
 }
 
 #solutions .card .btn:focus-visible {
@@ -176,7 +176,7 @@ section[id] {
   outline-offset: 3px;
 }
 
-/* Floor drainage: darker orange label and brighter orange detail button. */
+/* Floor drainage: dark orange detail button. */
 #solutions .card:has(a[href="drainage.html"]) .tag {
   background: #A64B0C;
   border-color: #A64B0C;
@@ -184,21 +184,21 @@ section[id] {
 }
 
 #solutions .card .btn[href="drainage.html"] {
-  background: #F6A23A;
-  border-color: #F6A23A;
-  color: #442304;
+  background: #934006;
+  border-color: #934006;
+  color: #fff;
 }
 
 #solutions .card .btn[href="drainage.html"]:hover {
-  background: #ED9428;
-  border-color: #ED9428;
+  background: #7A3505;
+  border-color: #7A3505;
 }
 
 #solutions .card .btn[href="drainage.html"]:focus-visible {
   outline-color: #A64B0C;
 }
 
-/* Waterproof protection: dark red label and brighter red detail button. */
+/* Waterproof protection: dark red detail button. */
 #solutions .card:has(a[href="waterproof.html"]) .tag {
   background: #9E262D;
   border-color: #9E262D;
@@ -206,14 +206,14 @@ section[id] {
 }
 
 #solutions .card .btn[href="waterproof.html"] {
-  background: #EF6468;
-  border-color: #EF6468;
-  color: #3B1014;
+  background: #861F26;
+  border-color: #861F26;
+  color: #fff;
 }
 
 #solutions .card .btn[href="waterproof.html"]:hover {
-  background: #E9545A;
-  border-color: #E9545A;
+  background: #701A20;
+  border-color: #701A20;
 }
 
 #solutions .card .btn[href="waterproof.html"]:focus-visible {
