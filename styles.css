@@ -1418,6 +1418,21 @@ footer a {
   object-fit: cover;
 }
 
+/* Keep the long acoustic panel fully visible in the narrow lineup thumbnail. */
+.lineupThumbAcoustic {
+  overflow: hidden;
+  background: #fff;
+}
+
+.lineupThumbAcoustic img {
+  width: 190px;
+  height: auto;
+  max-width: none;
+  object-fit: contain;
+  transform: rotate(90deg);
+  transform-origin: center;
+}
+
 .lineupBody {
   padding: 16px 16px;
   display: flex;
@@ -1465,6 +1480,13 @@ footer a {
   display: block;
   object-fit: cover;
   aspect-ratio: 4 / 3;
+}
+
+/* Preserve the wide installation photo without cropping or enlarging it excessively. */
+.mediaCardAcoustic img {
+  height: auto;
+  aspect-ratio: auto;
+  object-fit: contain;
 }
 
 .miniGrid {
@@ -1529,6 +1551,12 @@ footer a {
   .lineupThumb {
     border-right: none;
     border-bottom: 1px solid var(--line);
+  }
+  .lineupThumbAcoustic {
+    min-height: 250px;
+  }
+  .lineupThumbAcoustic img {
+    width: 235px;
   }
   .twoCol {
     grid-template-columns: 1fr;
