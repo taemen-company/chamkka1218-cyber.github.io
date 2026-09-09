@@ -272,9 +272,9 @@ ${message}`
       title: '규격/도면 자료 · 배수판 상세도',
       desc: '클릭하여 사진/도면을 확대해서 확인할 수 있습니다.',
       images: [
-        'assets/spec-detail-1.png',
-        'assets/spec-detail-2.png',
-        'assets/spec-detail-3.png'
+        'assets/spec-detail-hd-1.svg',
+        'assets/spec-detail-hd-2.svg',
+        'assets/spec-detail-hd-3.svg'
       ]
     },
 

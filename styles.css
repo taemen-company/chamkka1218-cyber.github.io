@@ -1765,3 +1765,10 @@ footer a {
   object-fit: contain;
   object-position: center;
 }
+
+/* The detail drawing thumbnail must remain fully visible instead of being cropped. */
+.specCard[data-spec-set="specDetail"] .specThumb img {
+  object-fit: contain;
+  object-position: center;
+  background: #fff;
+}
