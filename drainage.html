@@ -90,7 +90,7 @@
         </div>
 
         <div class="lineupGrid" role="list">
-          <article class="lineupCard" role="listitem">
+          <article class="lineupCard lineupCard--standard" role="listitem">
             <div class="lineupThumb">
               <img src="assets/products/injection.png" alt="TM 바닥 배수판(일반형)" loading="lazy">
             </div>
@@ -102,11 +102,11 @@
                 <span class="muted">매트형</span><b>730 × 2200</b>
                 <span class="muted">사출형</span><b>500 × 500</b>
               </div>
-              <a class="btn secondary small" href="#standard">상세 보기 →</a>
+              <a class="btn secondary small" href="#standard">상세보기</a>
             </div>
           </article>
 
-          <article class="lineupCard" role="listitem">
+          <article class="lineupCard lineupCard--acoustic" role="listitem">
             <div class="lineupThumb lineupThumbAcoustic">
               <img src="assets/products/acoustic-lineup-original.png" alt="TM 소음저감 배수판" loading="lazy">
             </div>
@@ -117,13 +117,13 @@
               <div class="lineupSpec">
                 <span class="muted">대표 규격</span><b>730 × 2220</b>
               </div>
-              <a class="btn secondary small" href="#acoustic">상세 보기 →</a>
+              <a class="btn secondary small" href="#acoustic">상세보기</a>
             </div>
           </article>
 
-          <article class="lineupCard" role="listitem">
-            <div class="lineupThumb">
-              <img src="assets/products/thermal.png" alt="TM 단열 배수판" loading="lazy">
+          <article class="lineupCard lineupCard--thermal" role="listitem">
+            <div class="lineupThumb lineupThumbThermal">
+              <img src="assets/products/thermal-product-original.png" alt="TM 단열 배수판" loading="lazy">
             </div>
             <div class="lineupBody">
               <div class="badge">단열</div>
@@ -132,11 +132,11 @@
               <div class="lineupSpec">
                 <span class="muted">구성</span><b>일체형 / 분리형</b>
               </div>
-              <a class="btn secondary small" href="#thermal">상세 보기 →</a>
+              <a class="btn secondary small" href="#thermal">상세보기</a>
             </div>
           </article>
 
-          <article class="lineupCard" role="listitem">
+          <article class="lineupCard lineupCard--landscape" role="listitem">
             <div class="lineupThumb">
               <img src="assets/products/landscape.png" alt="TM 조경용 배수판" loading="lazy">
             </div>
@@ -147,7 +147,7 @@
               <div class="lineupSpec">
                 <span class="muted">대표 규격</span><b>500 × 500</b>
               </div>
-              <a class="btn secondary small" href="#landscape">상세 보기 →</a>
+              <a class="btn secondary small" href="#landscape">상세보기</a>
             </div>
           </article>
         </div>
@@ -163,21 +163,21 @@
         </div>
         <div class="grid">
           <div class="card">
-            <span class="tag tech">배수</span>
+            <span class="tag eco">배수</span>
             <h3>배수 성능</h3>
             <p>물 고임을 줄이고 구조적 안정성을 지원합니다.</p>
           </div>
           <div class="card">
-            <span class="tag tech">시공</span>
+            <span class="tag tag-orange">시공</span>
             <h3>시공 편의</h3>
             <p>모듈형 구성으로 현장 동선/구배/마감 조건에 맞춰 적용합니다.</p>
           </div>
           <div class="card">
-            <span class="tag tech">적용</span>
+            <span class="tag fire">적용</span>
             <h3>추천 적용</h3>
             <p class="muted featureText">지하 바닥(주차장/공용부), 습기 취약 구간, 조경 구간</p>
-          </div>
         </div>
+      </div>
       </div>
     </section>
 
@@ -215,8 +215,8 @@
             </div>
           </div>
 
-          <div class="mediaCard">
-            <img src="assets/products/injection.png" alt="TM 바닥 배수판(일반형) 이미지" loading="lazy" />
+          <div class="mediaCard mediaCardWide">
+            <img src="assets/products/standard-installation-original.png" alt="TM 바닥 배수판 지하주차장 시공 모습" loading="lazy" />
           </div>
         </div>
       </div>
@@ -267,8 +267,15 @@
               <b>일체형 / 분리형</b>
             </div>
           </div>
-          <div class="mediaCard">
-            <img src="assets/products/thermal.png" alt="TM 단열 배수판 이미지" loading="lazy" />
+          <div class="detailGallery" aria-label="TM 단열 배수판 사진">
+            <figure class="detailGalleryItem">
+              <img src="assets/products/thermal-installation-original.png" alt="TM 단열 배수판 시공 현장" loading="lazy" />
+              <figcaption>시공 현장</figcaption>
+            </figure>
+            <figure class="detailGalleryItem">
+              <img src="assets/products/thermal-diagram-original.png" alt="TM 단열 배수판 구조 안내" loading="lazy" />
+              <figcaption>구조 안내</figcaption>
+            </figure>
           </div>
         </div>
       </div>
@@ -293,8 +300,15 @@
               <b>500 × 500</b>
             </div>
           </div>
-          <div class="mediaCard">
-            <img src="assets/products/landscape.png" alt="TM 조경용 배수판 이미지" loading="lazy" />
+          <div class="detailGallery detailGallery--landscape" aria-label="TM 조경용 배수판 사진">
+            <figure class="detailGalleryItem">
+              <img src="assets/products/landscape-installation-original.png" alt="TM 조경용 배수판 시공 전경" loading="lazy" />
+              <figcaption>시공 전경</figcaption>
+            </figure>
+            <figure class="detailGalleryItem">
+              <img src="assets/products/landscape-fabric-original.png" alt="TM 조경용 배수판 부직포 시공" loading="lazy" />
+              <figcaption>부직포 시공</figcaption>
+            </figure>
           </div>
         </div>
       </div>
