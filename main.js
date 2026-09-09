@@ -282,12 +282,12 @@ ${message}`
     outerSpec: {
       title: 'TM 외벽 방수 보호판 · 제품 규격',
       desc: '클릭하여 이미지를 확대해서 확인할 수 있습니다.',
-      images: ['assets/spec-730-1.jpg']
+      images: ['assets/outer-spec-product.png']
     },
     outerDetail: {
       title: 'TM 외벽 방수 보호판 · 상세도',
       desc: '클릭하여 이미지를 확대해서 확인할 수 있습니다.',
-      images: ['assets/spec-detail-1.png']
+      images: ['assets/outer-detail-1.png', 'assets/outer-detail-2.png']
     },
     absSpec: {
       title: 'TM 방수 보호판 (ABS) · 정면/배면',
