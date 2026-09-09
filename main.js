@@ -272,9 +272,9 @@ ${message}`
       title: '규격/도면 자료 · 배수판 상세도',
       desc: '클릭하여 사진/도면을 확대해서 확인할 수 있습니다.',
       images: [
-        'assets/spec-detail-original.png',
-        'assets/spec-detail-original.png',
-        'assets/spec-detail-original.png'
+        'assets/spec-detail-hd-1.svg',
+        'assets/spec-detail-hd-2.svg',
+        'assets/spec-detail-hd-3.svg'
       ]
     },
 
@@ -315,11 +315,7 @@ ${message}`
     current.idx = (i + current.images.length) % current.images.length;
     const src = current.images[current.idx];
     imgEl.src = src;
-    if (current.key === 'specDetail') {
-      imgEl.dataset.detailCrop = String(current.idx + 1);
-    } else {
-      delete imgEl.dataset.detailCrop;
-    }
+    delete imgEl.dataset.detailCrop;
     imgEl.alt = titleEl.textContent + ` (${current.idx + 1}/${current.images.length})`;
     Array.from(dotsEl.children).forEach((d, di) => d.classList.toggle('active', di === current.idx));
   }

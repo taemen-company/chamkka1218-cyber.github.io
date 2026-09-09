@@ -1887,44 +1887,27 @@ footer a {
   object-position: center;
 }
 
-/* The detail drawing thumbnail must remain fully visible instead of being cropped. */
-.specCard[data-spec-set="specDetail"] .specThumb img {
-  object-fit: contain;
-  object-position: center;
+/* Center the detail drawing thumbnail and keep the full drawing visible. */
+.specDetailThumb {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background: #fff;
 }
 
-/* Use the source drawing directly so the detail thumbnail cannot lose a nested SVG image. */
-.specDetailThumb {
-  background: #fff url("assets/spec-detail-original.png") right center / 300% 100% no-repeat;
+.specDetailThumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
 }
 
-/* Split the original three-panel drawing inside the modal without dependent SVG files. */
+/* Match the modal stage to the sharp vector detail drawings. */
 #specModal[data-spec-set="specDetail"] .sliderStage {
   width: auto;
   max-width: 100%;
-  aspect-ratio: 1.265 / 1;
+  aspect-ratio: 900 / 650;
   margin-inline: auto;
-}
-
-#specModal .sliderStage img[data-detail-crop] {
-  width: 300%;
-  max-width: none;
-  height: 100%;
-  max-height: none;
-  object-fit: fill;
-}
-
-#specModal .sliderStage img[data-detail-crop="1"] {
-  transform: translateX(33.3333%);
-}
-
-#specModal .sliderStage img[data-detail-crop="2"] {
-  transform: translateX(0);
-}
-
-#specModal .sliderStage img[data-detail-crop="3"] {
-  transform: translateX(-33.3333%);
 }
 
 /* Keep fine text and lines in the original detail drawings crisp. */
@@ -1933,7 +1916,7 @@ footer a {
 }
 
 .specCard[data-spec-set="specDetail"] .specThumb img,
-#specModal .sliderStage img[src*="spec-detail-original-"] {
+#specModal .sliderStage img[src*="spec-detail-hd-"] {
   image-rendering: auto;
   transform: translateZ(0);
   backface-visibility: hidden;
