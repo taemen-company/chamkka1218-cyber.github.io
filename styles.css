@@ -1801,6 +1801,39 @@ footer a {
   background: #fff;
 }
 
+/* Use the source drawing directly so the detail thumbnail cannot lose a nested SVG image. */
+.specDetailThumb {
+  background: #fff url("assets/spec-detail-original.png") right center / 300% 100% no-repeat;
+}
+
+/* Split the original three-panel drawing inside the modal without dependent SVG files. */
+#specModal[data-spec-set="specDetail"] .sliderStage {
+  width: auto;
+  max-width: 100%;
+  aspect-ratio: 1.265 / 1;
+  margin-inline: auto;
+}
+
+#specModal .sliderStage img[data-detail-crop] {
+  width: 300%;
+  max-width: none;
+  height: 100%;
+  max-height: none;
+  object-fit: fill;
+}
+
+#specModal .sliderStage img[data-detail-crop="1"] {
+  transform: translateX(33.3333%);
+}
+
+#specModal .sliderStage img[data-detail-crop="2"] {
+  transform: translateX(0);
+}
+
+#specModal .sliderStage img[data-detail-crop="3"] {
+  transform: translateX(-33.3333%);
+}
+
 /* Keep fine text and lines in the original detail drawings crisp. */
 .specCard[data-spec-set="specDetail"] .specThumb {
   aspect-ratio: 434 / 343;

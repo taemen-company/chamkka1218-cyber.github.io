@@ -272,9 +272,9 @@ ${message}`
       title: '규격/도면 자료 · 배수판 상세도',
       desc: '클릭하여 사진/도면을 확대해서 확인할 수 있습니다.',
       images: [
-        'assets/spec-detail-original-1.svg',
-        'assets/spec-detail-original-2.svg',
-        'assets/spec-detail-original-3.svg'
+        'assets/spec-detail-original.png',
+        'assets/spec-detail-original.png',
+        'assets/spec-detail-original.png'
       ]
     },
 
@@ -315,6 +315,11 @@ ${message}`
     current.idx = (i + current.images.length) % current.images.length;
     const src = current.images[current.idx];
     imgEl.src = src;
+    if (current.key === 'specDetail') {
+      imgEl.dataset.detailCrop = String(current.idx + 1);
+    } else {
+      delete imgEl.dataset.detailCrop;
+    }
     imgEl.alt = titleEl.textContent + ` (${current.idx + 1}/${current.images.length})`;
     Array.from(dotsEl.children).forEach((d, di) => d.classList.toggle('active', di === current.idx));
   }
@@ -323,6 +328,7 @@ ${message}`
     const set = sets[key];
     if (!set) return;
     current.key = key;
+    modal.dataset.specSet = key;
     current.images = set.images;
     current.idx = 0;
     titleEl.textContent = set.title;
@@ -338,6 +344,8 @@ ${message}`
     modal.classList.remove('open');
     modal.setAttribute('aria-hidden', 'true');
     imgEl.src = '';
+    delete imgEl.dataset.detailCrop;
+    delete modal.dataset.specSet;
     dotsEl.innerHTML = '';
     current = { key: null, idx: 0, images: [] };
   }
