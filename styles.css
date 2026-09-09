@@ -159,6 +159,18 @@ section[id] {
   border-color: var(--line);
 }
 
+/* Company introduction card: prominent profile download button. */
+#company .company-profile-download {
+  background: #A64B0C;
+  border-color: #A64B0C;
+  color: #fff;
+}
+
+#company .company-profile-download:hover {
+  background: #8D3F08;
+  border-color: #8D3F08;
+}
+
 /* Dark, restrained detail buttons in the homepage product cards. */
 #solutions .card .btn {
   background: #657823;
