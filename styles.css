@@ -1772,3 +1772,15 @@ footer a {
   object-position: center;
   background: #fff;
 }
+
+/* Keep fine text and lines in the original detail drawings crisp. */
+.specCard[data-spec-set="specDetail"] .specThumb {
+  aspect-ratio: 434 / 343;
+}
+
+.specCard[data-spec-set="specDetail"] .specThumb img,
+#specModal .sliderStage img[src*="spec-detail-original-"] {
+  image-rendering: auto;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
