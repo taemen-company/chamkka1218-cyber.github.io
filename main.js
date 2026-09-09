@@ -256,9 +256,8 @@ ${message}`
       title: '규격/도면 자료 · 500 × 500',
       desc: '클릭하여 사진/도면을 확대해서 확인할 수 있습니다.',
       images: [
-        'assets/spec-500-1.png',
-        'assets/spec-500-2.png',
-        'assets/spec-500-3.png'
+        'assets/spec-500-types.png',
+        'assets/spec-500-45mm.png'
       ]
     },
     spec730: {

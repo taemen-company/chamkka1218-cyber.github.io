@@ -1757,3 +1757,11 @@ footer a {
   align-items: center;
   gap: 7px;
 }
+
+/* Show replacement 500 x 500 product images as large and sharp as possible. */
+#specModal .sliderStage img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+}
