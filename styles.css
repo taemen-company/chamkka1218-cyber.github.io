@@ -1709,3 +1709,51 @@ footer a {
   #top > .hero .pillRow { gap: 6px; margin-top: 14px; }
   #top > .hero .pill { font-size: 11px; padding: 7px 8px; }
 }
+
+/* Resource cards: each PDF label and button uses its approved category color. */
+#resources .resource-card--catalog .resource-tag {
+  color: #4B778B;
+  border-color: #4B778B;
+  background: rgba(75, 119, 139, .08);
+}
+
+#resources .resource-card--catalog .resource-download {
+  color: #fff;
+  border-color: #4B778B;
+  background: #4B778B;
+}
+
+#resources .resource-card--catalog .resource-download:hover {
+  border-color: #3F697C;
+  background: #3F697C;
+}
+
+#resources .resource-card--profile .resource-tag {
+  color: #72872E;
+  border-color: #72872E;
+  background: rgba(114, 135, 46, .08);
+}
+
+#resources .resource-card--profile .resource-download {
+  color: #fff;
+  border-color: #72872E;
+  background: #72872E;
+}
+
+#resources .resource-card--profile .resource-download:hover {
+  border-color: #637628;
+  background: #637628;
+}
+
+#resources .resource-download:focus-visible {
+  outline: 3px solid currentColor;
+  outline-offset: 3px;
+}
+
+/* Keep both phone numbers aligned and styled identically. */
+.consult-phone-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 7px;
+}
