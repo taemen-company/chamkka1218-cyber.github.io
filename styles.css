@@ -1425,11 +1425,11 @@ footer a {
 }
 
 .lineupThumbAcoustic img {
-  width: 245px;
+  width: 280px;
   height: auto;
   max-width: none;
   object-fit: contain;
-  transform: rotate(90deg);
+  transform: translateX(-53px) rotate(90deg);
   transform-origin: center;
 }
 
@@ -1443,7 +1443,7 @@ footer a {
   height: auto;
   max-width: none;
   object-fit: contain;
-  transform: rotate(90deg);
+  transform: translateX(-28px) rotate(90deg);
   transform-origin: center;
 }
 
@@ -1513,11 +1513,11 @@ footer a {
   aspect-ratio: 4 / 3;
 }
 
-/* Preserve the wide installation photo without cropping or enlarging it excessively. */
+/* Match the acoustic installation photo to the standard detail image size. */
 .mediaCardAcoustic img {
   height: auto;
-  aspect-ratio: auto;
-  object-fit: contain;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
 }
 
 .mediaCardWide img {
