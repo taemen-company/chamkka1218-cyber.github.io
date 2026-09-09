@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 650">
+ <defs><pattern id="h" width="28" height="28" patternUnits="userSpaceOnUse" patternTransform="rotate(35)"><path d="M0 0v28" stroke="#adb3b8" stroke-width="2"/></pattern></defs>
+ <rect width="900" height="650" fill="#fff"/><path d="M690 0h210v650H560l130-175zM0 465h345v185H0z" fill="#d9dcde"/><path d="M690 0h210v650H560l130-175zM0 465h345v185H0z" fill="url(#h)"/>
+ <path d="M0 300h330v165H0zM485 300h205v175H485z" fill="#fff" stroke="#a9afb4" stroke-width="2"/><path d="M330 310h155v270H330z" fill="#fff" stroke="#92999f" stroke-width="3"/><path d="M320 290h175v55H320z" fill="#65c8d2"/>
+ <path d="M0 250h330v62M0 270h330M0 290h330" fill="none" stroke="#aaa" stroke-width="2"/><path d="M0 420v-38h40v38h40v-38h40v38h40v-38h40v38h40v-38h40v38h40" fill="none" stroke="#e49a8a" stroke-width="3"/>
+ <g stroke="#898f94" stroke-width="2"><path d="M690 0v475M690 60h55M690 120h55M690 180h55M690 240h55M690 300h55M690 360h55M690 420h55"/></g><g fill="#f1dc2c"><path d="M690 0h55v60h-55zM690 120h55v60h-55zM690 240h55v60h-55zM690 360h55v60h-55z"/></g>
+ <g font-family="Noto Sans KR,Arial,sans-serif" font-weight="700" fill="#292d31"><text x="408" y="265" text-anchor="middle" font-size="36">TRENCH</text><text x="580" y="270" text-anchor="middle" font-size="28">벽체 배수판</text><text x="155" y="350" text-anchor="middle" font-size="25">무근 CONC</text><text x="155" y="380" text-anchor="middle" font-size="24">WIRE MASH</text><text x="170" y="450" text-anchor="middle" font-size="23">바닥 배수판</text><text x="590" y="395" text-anchor="middle" font-size="25">무근 CONC</text><text x="795" y="335" text-anchor="middle" font-size="30">SLAB</text></g>
+</svg>
