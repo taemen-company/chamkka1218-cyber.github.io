@@ -942,6 +942,10 @@ footer a {
   min-height: 0;
 }
 
+.slider.singleSlide {
+  grid-template-columns: 1fr;
+}
+
 .sliderStage,
 .sliderFrame {
   border: 1px solid var(--line);

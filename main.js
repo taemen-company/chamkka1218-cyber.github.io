@@ -124,6 +124,7 @@ ${message}`
   const prevBtn = document.getElementById('casePrev');
   const nextBtn = document.getElementById('caseNext');
   const dotsEl = document.getElementById('caseDots');
+  const sliderEl = imgEl?.closest('.slider');
 
   const cards = document.querySelectorAll('.caseCard');
   if (!modal || !closeBtn || !titleEl || !imgEl || !prevBtn || !nextBtn || !dotsEl || !cards.length) return;
@@ -164,6 +165,7 @@ ${message}`
 
     prevBtn.style.display = gallery.length > 1 ? 'flex' : 'none';
     nextBtn.style.display = gallery.length > 1 ? 'flex' : 'none';
+    if (sliderEl) sliderEl.classList.toggle('singleSlide', gallery.length <= 1);
     renderDots();
   }
 
@@ -183,6 +185,7 @@ ${message}`
     modal.setAttribute('aria-hidden', 'true');
     imgEl.src = '';
     if (captionEl) captionEl.textContent = '';
+    if (sliderEl) sliderEl.classList.remove('singleSlide');
     gallery = [];
     current = 0;
   }
