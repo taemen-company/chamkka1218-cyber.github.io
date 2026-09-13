@@ -114,6 +114,38 @@ ${message}`
 })();
 
 
+// ===== CASE GRID LOAD MORE =====
+(function () {
+  const list = document.querySelector('.caseList');
+  const cards = Array.from(document.querySelectorAll('.caseCard'));
+  const loadMoreBtn = document.getElementById('caseLoadMore');
+  if (!list || !cards.length || !loadMoreBtn) return;
+
+  const pageSize = window.matchMedia('(max-width: 600px)').matches ? 8 : 12;
+  let visibleLimit = pageSize;
+
+  function render() {
+    const visibleCount = Math.min(visibleLimit, cards.length);
+    cards.forEach((card, index) => {
+      card.hidden = index >= visibleCount;
+    });
+
+    const remaining = cards.length - visibleCount;
+    loadMoreBtn.hidden = remaining <= 0;
+    if (remaining > 0) {
+      loadMoreBtn.textContent = `시공사례 더 보기 (${Math.min(pageSize, remaining)}개)`;
+    }
+  }
+
+  loadMoreBtn.addEventListener('click', () => {
+    visibleLimit += pageSize;
+    render();
+  });
+
+  render();
+})();
+
+
 // ===== CASE MODAL SLIDER (시공 사례) =====
 (function () {
   const modal = document.getElementById('caseModal');

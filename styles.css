@@ -1693,7 +1693,7 @@ footer a {
 /* ===== CASE LIST (현장별 시공 사례 목록) ===== */
 .caseLibrary {
   margin-top: 22px;
-  padding: 18px;
+  padding: 22px;
   border: 1px solid var(--line);
   border-radius: 16px;
   background: #fff;
@@ -1701,37 +1701,42 @@ footer a {
 
 .caseList {
   list-style: none;
-  margin: 14px 0 0;
+  margin: 18px 0 0;
   padding: 0;
   display: grid;
-  gap: 10px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
 }
 
 .caseListItem {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  padding: 12px;
+  position: relative;
+  display: block;
+  padding: 0;
   border: 1px solid var(--line);
   border-radius: 14px;
   background: #fff;
+  overflow: hidden;
   cursor: pointer;
-  transition: transform .08s ease, box-shadow .08s ease;
+  transition: transform .15s ease, box-shadow .15s ease;
 }
 
 .caseListItem:hover {
-  transform: translateY(-1px);
+  transform: translateY(-3px);
   box-shadow: 0 10px 22px rgba(2, 6, 23, .08);
 }
 
+.caseListItem[hidden] {
+  display: none !important;
+}
+
 .caseListThumb {
-  width: 88px;
-  height: 66px;
-  border-radius: 10px;
+  width: 100%;
+  height: 168px;
   overflow: hidden;
-  border: 1px solid var(--line);
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  border-radius: 0;
   background: var(--bg);
-  flex: none;
 }
 
 .caseListThumb img {
@@ -1739,16 +1744,26 @@ footer a {
   height: 100%;
   object-fit: cover;
   display: block;
+  transition: transform .25s ease;
+}
+
+.caseListItem:hover .caseListThumb img {
+  transform: scale(1.025);
 }
 
 .caseListBody {
-  flex: 1;
   min-width: 0;
+  min-height: 82px;
+  padding: 14px 42px 14px 14px;
 }
 
 .caseListBody b {
-  display: block;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
   font-size: 15px;
+  line-height: 1.45;
 }
 
 .caseListBody span {
@@ -1759,9 +1774,25 @@ footer a {
 }
 
 .caseListArrow {
-  flex: none;
+  position: absolute;
+  right: 16px;
+  bottom: 24px;
   color: var(--muted);
   font-size: 20px;
+}
+
+.caseLoadMoreWrap {
+  display: flex;
+  justify-content: center;
+  margin-top: 22px;
+}
+
+.caseLoadMore {
+  min-width: 190px;
+}
+
+.caseLoadMore[hidden] {
+  display: none;
 }
 
 .caseListItem.disabled {
@@ -1778,6 +1809,56 @@ footer a {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+@media (max-width: 900px) {
+  .caseList {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .caseLibrary {
+    padding: 16px;
+  }
+
+  .caseList {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .caseListItem {
+    display: grid;
+    grid-template-columns: 116px minmax(0, 1fr);
+    min-height: 92px;
+  }
+
+  .caseListThumb {
+    width: 116px;
+    height: 100%;
+    min-height: 92px;
+    border-right: 1px solid var(--line);
+    border-bottom: 0;
+  }
+
+  .caseListBody {
+    min-height: 0;
+    padding: 13px 34px 13px 13px;
+  }
+
+  .caseListBody b {
+    font-size: 14px;
+  }
+
+  .caseListBody span {
+    font-size: 12px;
+  }
+
+  .caseListArrow {
+    right: 12px;
+    bottom: 50%;
+    transform: translateY(50%);
+  }
 }
 
 /* dots container */
