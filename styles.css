@@ -237,6 +237,14 @@ section[id] {
   border-radius: 10px;
   font-weight: 800;
   font-size: 14px;
+  background: #E58A00;
+  border-color: #E58A00;
+  color: #fff;
+}
+
+.btn.small:hover {
+  background: #C97800;
+  border-color: #C97800;
 }
 
 .muted {
