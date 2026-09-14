@@ -1770,6 +1770,10 @@ footer a {
   transform: scale(1.025);
 }
 
+.caseListItem:hover .caseListThumb img[src$="_thumb.jpg"] {
+  transform: none;
+}
+
 .caseListBody {
   min-width: 0;
   min-height: 82px;
