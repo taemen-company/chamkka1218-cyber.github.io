@@ -440,6 +440,19 @@ header {
   pointer-events: none;
 }
 
+.page-title-bar.drainage-hero {
+  background-image: url("assets/drainage-hero.png");
+  background-position: center 58%;
+  background-size: cover;
+}
+
+.page-title-bar.drainage-hero::before {
+  background: linear-gradient(90deg,
+    rgba(14, 18, 22, .66) 0%,
+    rgba(14, 18, 22, .54) 50%,
+    rgba(14, 18, 22, .38) 100%);
+}
+
 .page-title-bar .container {
   position: relative;
   z-index: 1;
