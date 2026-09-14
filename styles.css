@@ -1293,7 +1293,7 @@ footer a {
 
 /* Wall product hero: installation photo with layered contrast for readable copy. */
 .wall-page-title {
-  background-image: url("assets/wall-ramp-taemen-hero.webp");
+  background-image: url("assets/wall-ramp-taemen-hero.webp?v=20260914-final");
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -1301,9 +1301,9 @@ footer a {
 
 .wall-page-title::before {
   background:
-    radial-gradient(ellipse at 50% 50%, rgba(5, 8, 9, .36) 0%, rgba(5, 8, 9, .16) 42%, rgba(5, 8, 9, 0) 72%),
-    linear-gradient(rgba(12, 16, 18, .56), rgba(12, 16, 18, .56));
-  backdrop-filter: blur(1px);
+    radial-gradient(ellipse at 50% 50%, rgba(7, 10, 11, .32) 0%, rgba(7, 10, 11, .14) 42%, rgba(7, 10, 11, 0) 72%),
+    linear-gradient(rgba(15, 20, 22, .28), rgba(15, 20, 22, .28));
+  backdrop-filter: none;
 }
 
 #pvc-wall .productPhoto,
