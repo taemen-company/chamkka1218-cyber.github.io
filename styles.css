@@ -1273,6 +1273,11 @@ footer a {
 }
 
 /* PVC lineup: navy photo areas provide contrast for the white products. */
+#pvc-wall .photoCard {
+  isolation: isolate;
+  clip-path: inset(0 round 16px);
+}
+
 #pvc-wall .productPhoto,
 #pvc-wall .photoPlaceholder {
   width: 100%;
