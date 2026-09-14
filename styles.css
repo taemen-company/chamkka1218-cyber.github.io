@@ -1285,7 +1285,7 @@ footer a {
   font-weight: 700;
 }
 
-/* PVC lineup: navy photo areas provide contrast for the white products. */
+/* PVC lineup: warm gray photo areas provide contrast for the white products. */
 #pvc-wall .photoCard {
   isolation: isolate;
   clip-path: inset(0 round 16px);
@@ -1311,7 +1311,7 @@ footer a {
   width: 100%;
   aspect-ratio: 4 / 3;
   overflow: hidden;
-  background: #6C6B65;
+  background: #6B6964;
   border-bottom: 1px solid var(--line);
 }
 
