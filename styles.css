@@ -497,6 +497,10 @@ header {
   background: rgba(255, 255, 255, 0.2);
 }
 
+.mobileHeroBreak {
+  display: none;
+}
+
 @media (max-width: 860px) {
   .page-title-bar {
     min-height: 500px;
@@ -1873,36 +1877,134 @@ footer a {
   }
 
   .caseListItem {
-    display: grid;
-    grid-template-columns: 116px minmax(0, 1fr);
-    min-height: 92px;
+    display: block;
+    min-height: 0;
   }
 
   .caseListThumb {
-    width: 116px;
-    height: 100%;
-    min-height: 92px;
-    border-right: 1px solid var(--line);
-    border-bottom: 0;
+    width: 100%;
+    height: auto;
+    min-height: 0;
+    aspect-ratio: 16 / 10;
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
   }
 
   .caseListBody {
     min-height: 0;
-    padding: 13px 34px 13px 13px;
+    padding: 15px 42px 16px 15px;
   }
 
   .caseListBody b {
-    font-size: 14px;
+    font-size: 15px;
   }
 
   .caseListBody span {
-    font-size: 12px;
+    font-size: 13px;
   }
 
   .caseListArrow {
-    right: 12px;
-    bottom: 50%;
-    transform: translateY(50%);
+    right: 15px;
+    bottom: 22px;
+    transform: none;
+  }
+}
+
+/* Mobile: show wide product-hero photos in full before the copy. */
+@media (max-width: 600px) {
+  .page-title-bar.wall-page-title,
+  .page-title-bar.drainage-hero {
+    min-height: 0;
+    height: auto;
+    display: block;
+    padding-top: var(--mobile-hero-image-height);
+    padding-bottom: 0;
+    background-size: 100% auto;
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-color: #4f4e4a;
+  }
+
+  .page-title-bar.wall-page-title::before,
+  .page-title-bar.drainage-hero::before {
+    inset: 0 0 auto;
+    height: var(--mobile-hero-image-height);
+    background: linear-gradient(rgba(15, 20, 22, .12), rgba(15, 20, 22, .28));
+  }
+
+  .page-title-bar.wall-page-title {
+    --mobile-hero-image-height: 48.7vw;
+  }
+
+  .page-title-bar.drainage-hero {
+    --mobile-hero-image-height: 56.5vw;
+  }
+
+  .page-title-bar.wall-page-title .container,
+  .page-title-bar.drainage-hero .container {
+    width: 100%;
+    padding-top: 28px;
+    padding-bottom: 30px;
+  }
+
+  .page-title-bar.wall-page-title h1,
+  .page-title-bar.drainage-hero h1 {
+    margin-bottom: 10px;
+    font-size: 28px;
+  }
+
+  .page-title-bar.wall-page-title p,
+  .page-title-bar.drainage-hero p {
+    margin-bottom: 18px;
+    font-size: 14px;
+    line-height: 1.6;
+    width: calc(100vw - 48px);
+    max-width: calc(100vw - 48px);
+    white-space: normal !important;
+    word-break: break-all;
+    overflow-wrap: break-word;
+  }
+
+  .mobileHeroBreak {
+    display: block;
+  }
+
+  .page-title-bar.wall-page-title .ctaRow,
+  .page-title-bar.drainage-hero .ctaRow {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .page-title-bar.wall-page-title .btn,
+  .page-title-bar.drainage-hero .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .page-title-bar.drainage-hero .kpiRow {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .page-title-bar.drainage-hero .kpi {
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    white-space: normal;
+    gap: 4px;
+  }
+
+  .page-title-bar.drainage-hero .kpiVal {
+    width: 100%;
+    min-width: 0;
+    text-align: left;
+    overflow-wrap: anywhere;
+  }
+
+  .section-title p {
+    word-break: normal;
+    overflow-wrap: anywhere;
   }
 }
 
