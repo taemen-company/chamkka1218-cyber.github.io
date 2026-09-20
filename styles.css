@@ -1485,34 +1485,40 @@ footer a {
 
 /* Keep the long acoustic panel fully visible in the narrow lineup thumbnail. */
 .lineupThumbAcoustic {
+  position: relative;
+  display: block;
   overflow: hidden;
   background: #fff;
 }
 
 .lineupThumbAcoustic img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
   width: 280px;
   height: auto;
   max-width: none;
   object-fit: contain;
-  justify-self: center;
-  align-self: center;
-  transform: rotate(90deg);
+  transform: translate(-50%, -50%) rotate(90deg);
   transform-origin: center;
 }
 
 .lineupThumbThermal {
+  position: relative;
+  display: block;
   overflow: hidden;
   background: #fff;
 }
 
 .lineupThumbThermal img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
   width: 265px;
   height: auto;
   max-width: none;
   object-fit: contain;
-  justify-self: center;
-  align-self: center;
-  transform: rotate(90deg);
+  transform: translate(-50%, -50%) rotate(90deg);
   transform-origin: center;
 }
 
