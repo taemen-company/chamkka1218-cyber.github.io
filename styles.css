@@ -1941,6 +1941,10 @@ footer a {
 
 /* Mobile: show wide product-hero photos in full before the copy. */
 @media (max-width: 600px) {
+  .mobile-hidden-caption {
+    display: none;
+  }
+
   .page-title-bar.wall-page-title,
   .page-title-bar.drainage-hero {
     min-height: 0;
