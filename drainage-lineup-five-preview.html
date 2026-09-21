@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>바닥 배수판 5종 라인업 미리보기</title>
+  <!-- 확정안: 5종 제품 카드 하단 정보의 항목명 칸과 값 정렬 통일. 홈페이지에는 아직 미반영. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=preview-five-lineup">
+  <style>
+    body { margin: 0; background: #fff; font-family: "Noto Sans KR", sans-serif; }
+    #lineup { min-height: 100vh; padding: 72px 0 90px; }
+    .previewContainer { width: min(1120px, calc(100% - 40px)); margin: 0 auto; }
+    .lineupGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .lineupSpec {
+      grid-template-columns: 72px minmax(0, 1fr);
+      column-gap: 8px;
+      align-items: baseline;
+    }
+    .lineupSpec .muted { white-space: nowrap; }
+    .lineupCard--last {
+      grid-column: 1 / -1;
+      justify-self: center;
+      width: calc(50% - 7px);
+    }
+    .lineupThumbMat { background: #fff; overflow: hidden; }
+    .lineupThumbInjection { background: #fff; overflow: hidden; }
+    .lineupThumbInjection img {
+      object-fit: contain;
+      padding: 8px;
+      transform: scale(1.1);
+      transform-origin: center;
+    }
+    .lineupThumbMat img {
+      object-fit: contain;
+      padding: 6px 14px;
+      transform: none;
+    }
+    .lineupCard--mat .lineupBody .btn { background: #72872E; border-color: #72872E; }
+    .lineupCard--mat .lineupBody .btn:hover { background: #637628; border-color: #637628; }
+    @media (max-width: 800px) {
+      #lineup { padding: 48px 0 64px; }
+      .previewContainer { width: min(100% - 28px, 560px); }
+      .lineupGrid { grid-template-columns: 1fr; }
+      .lineupCard { grid-template-columns: 1fr; }
+      .lineupThumb { min-height: 250px; border-right: 0; border-bottom: 1px solid var(--line); }
+      .lineupCard--last { grid-column: auto; width: 100%; }
+      .lineupThumbMat img { padding: 8px 18px; transform: none; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <section id="lineup" aria-label="제품 라인업 미리보기">
+      <div class="previewContainer">
+        <div class="section-title">
+          <h2>제품 라인업</h2>
+          <p>필요 성능에 따라 제품군을 선택하세요.</p>
+        </div>
+
+        <div class="lineupGrid" role="list">
+          <article class="lineupCard lineupCard--standard" role="listitem">
+            <div class="lineupThumb lineupThumbInjection">
+              <img src="assets/products/injection-top-clean-preview.png" alt="위에서 바라본 정사각형 TM 바닥 배수판 사출형">
+            </div>
+            <div class="lineupBody">
+              <div class="badge">일반형</div>
+              <h3>TM 바닥 배수판 사출형</h3>
+              <p class="one">부분 시공과 교체가 편리한 사출형 배수판</p>
+              <div class="lineupSpec">
+                <span class="muted">사출형</span><b>500 × 500</b>
+                <span class="muted">규격</span><b>30T · 45T · 70T · 120T · 200T</b>
+              </div>
+              <a class="btn secondary small" href="#">상세보기</a>
+            </div>
+          </article>
+
+          <article class="lineupCard lineupCard--mat" role="listitem">
+            <div class="lineupThumb lineupThumbMat">
+              <img src="assets/products/mat-black-sharp-cropped-preview.png" alt="TM 바닥 배수판 매트형">
+            </div>
+            <div class="lineupBody">
+              <div class="badge">일반형</div>
+              <h3>TM 바닥 배수판 매트형</h3>
+              <p class="one">대면적 구간을 빠르게 시공하는 장척형 배수판</p>
+              <div class="lineupSpec">
+                <span class="muted">매트형</span><b>730 × 2200</b>
+                <span class="muted">규격</span><b>30T · 45T · 70T · 120T · 200T</b>
+              </div>
+              <a class="btn secondary small" href="#">상세보기</a>
+            </div>
+          </article>
+
+          <article class="lineupCard lineupCard--acoustic" role="listitem">
+            <div class="lineupThumb lineupThumbAcoustic">
+              <img src="assets/products/acoustic-lineup-original.png" alt="TM 소음저감 배수판">
+            </div>
+            <div class="lineupBody">
+              <div class="badge">소음저감</div>
+              <h3>TM 소음저감 배수판</h3>
+              <p class="one">차량 충격·진동을 흡수해 소음을 저감하는 구조</p>
+              <div class="lineupSpec">
+                <span class="muted">대표 규격</span><b>730 × 2220</b>
+              </div>
+              <a class="btn secondary small" href="#">상세보기</a>
+            </div>
+          </article>
+
+          <article class="lineupCard lineupCard--thermal" role="listitem">
+            <div class="lineupThumb lineupThumbThermal">
+              <img src="assets/products/thermal-product-original.png" alt="TM 단열 배수판">
+            </div>
+            <div class="lineupBody">
+              <div class="badge">단열</div>
+              <h3>TM 단열 배수판</h3>
+              <p class="one">결로·열손실 저감과 배수 기능을 동시에</p>
+              <div class="lineupSpec">
+                <span class="muted">구성</span><b>일체형 / 분리형</b>
+              </div>
+              <a class="btn secondary small" href="#">상세보기</a>
+            </div>
+          </article>
+
+          <article class="lineupCard lineupCard--landscape lineupCard--last" role="listitem">
+            <div class="lineupThumb">
+              <img src="assets/products/landscape.png" alt="TM 조경용 배수판">
+            </div>
+            <div class="lineupBody">
+              <div class="badge">조경</div>
+              <h3>TM 조경용 배수판</h3>
+              <p class="one">옥상·조경 배수 최적화 및 식생 환경 개선</p>
+              <div class="lineupSpec">
+                <span class="muted">대표 규격</span><b>500 × 500</b>
+              </div>
+              <a class="btn secondary small" href="#">상세보기</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
