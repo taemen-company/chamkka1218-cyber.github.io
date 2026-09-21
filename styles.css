@@ -2585,9 +2585,9 @@ footer a {
   background: #fff;
 }
 
-/* Use the source drawing directly so the detail thumbnail cannot lose a nested SVG image. */
+/* Keep the new representative diagram fully visible in its card. */
 .specDetailThumb {
-  background: #fff url("assets/spec-detail-original.png") right center / 300% 100% no-repeat;
+  background: #fff;
 }
 
 /* Split the original three-panel drawing inside the modal without dependent SVG files. */
