@@ -1661,6 +1661,84 @@ footer a {
   object-fit: cover;
 }
 
+/* Mat detail: emphasizes fast, simple installation while remaining distinct. */
+.matDetailGrid {
+  display: grid;
+  grid-template-columns: minmax(0, .78fr) minmax(500px, 1.05fr);
+  gap: 28px;
+  align-items: center;
+}
+.matFeaturePanel {
+  padding: 22px;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: #fff;
+  box-shadow: var(--shadow);
+}
+.matFeatureIntro {
+  margin: 0 0 14px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.65;
+}
+.matHighlights {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 15px;
+}
+.matHighlight {
+  padding: 7px 11px;
+  border-radius: 999px;
+  background: #f1f4e6;
+  color: #5f7222;
+  font-size: 12px;
+  font-weight: 800;
+}
+.matFeatureList {
+  display: grid;
+  gap: 7px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.matFeatureList li {
+  display: grid;
+  grid-template-columns: 26px 1fr;
+  gap: 9px;
+  align-items: start;
+  color: #30343a;
+  font-size: 13.5px;
+  line-height: 1.5;
+}
+.matFeatureNumber {
+  width: 26px;
+  height: 26px;
+  display: grid;
+  place-items: center;
+  border-radius: 8px;
+  background: #72872E;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 800;
+  box-shadow: 0 4px 9px rgba(114, 135, 46, .22);
+}
+.matInstallationPhoto {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: #f4f4f4;
+  box-shadow: var(--shadow);
+}
+.matInstallationPhoto img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
 /* details */
 .twoCol {
   display: grid;
@@ -1856,6 +1934,9 @@ footer a {
     grid-template-columns: 1fr;
   }
   .injectionDetailGrid {
+    grid-template-columns: 1fr;
+  }
+  .matDetailGrid {
     grid-template-columns: 1fr;
   }
   .miniGrid {
