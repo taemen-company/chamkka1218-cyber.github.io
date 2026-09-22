@@ -302,6 +302,10 @@ header {
 
 .brand a {
   text-decoration: none;
+  display: block;
+  width: 53px;
+  height: 54px;
+  overflow: hidden;
 }
 
 .nav ul {
@@ -701,10 +705,11 @@ footer a {
 
 
 .logo-img {
-  height: 48px;
+  height: 70px;
   width: auto;
-  object-fit: contain;
-  transform: translateY(3px);
+  max-width: none;
+  display: block;
+  transform: translate(-10px, -7px);
 }
 
 /* ===== HERO SLIDER ===== */
