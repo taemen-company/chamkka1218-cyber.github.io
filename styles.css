@@ -2030,7 +2030,7 @@ html[data-seoul-night="true"] #top > .hero {
   padding: 22px;
   border: 1px solid var(--line);
   border-radius: 16px;
-  background: #fff;
+  background: var(--bg);
 }
 
 .caseList {
