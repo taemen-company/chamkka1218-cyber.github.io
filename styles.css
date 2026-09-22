@@ -2708,3 +2708,36 @@ html[data-seoul-night="true"] #top > .hero {
 @media(max-width:600px) {
   .page-title-bar.wall-page-title.trench-page-title { background-image:url("assets/trench-hero.png"); background-position:center 58%; }
 }
+
+/* Process comparison: highlighted PC trench flow. */
+.processCompare { display:grid; gap:22px; }
+.processCard { padding:26px; }
+.processHead { display:flex; align-items:center; justify-content:space-between; gap:18px; margin-bottom:24px; }
+.processHead p { margin:0; color:var(--muted); font-size:14px; }
+.processTag { color:#377CA6; border-color:rgba(55,124,166,.42); background:#fff; }
+.processCard--wet .processTag { color:#505b69; border-color:#cbd2da; }
+.processSteps { list-style:none; display:grid; grid-template-columns:repeat(6,minmax(0,1fr)); gap:18px; margin:0; padding:0; }
+.processSteps li { position:relative; min-height:86px; display:flex; flex-direction:column; justify-content:center; align-items:center; gap:3px; border:1px solid #d9e1e8; background:#f8fafc; border-radius:14px; text-align:center; padding:12px 8px; }
+.processSteps li:not(:last-child)::after { content:'→'; position:absolute; left:calc(100% + 3px); width:12px; color:#9aa7b3; font-size:17px; font-weight:700; }
+.processSteps li span { color:#84909d; font-size:11px; font-weight:800; }
+.processSteps li b { color:#28374a; font-size:14px; }
+.processCard--dry { border:2px solid #377CA6; background:linear-gradient(110deg,#f2f9fd 0%,#fff 72%); box-shadow:0 17px 36px rgba(55,124,166,.17); }
+.processCard--dry .processTag { color:#fff; background:#377CA6; border-color:#377CA6; }
+.processIntro h3 { margin:11px 0 3px; color:#1f5c7f; font-size:23px; }
+.processCard--dry .processHead p { color:#477089; }
+.processCard--dry .processSteps { grid-template-columns:repeat(2,minmax(0,256px)); gap:84px; justify-content:center; }
+.processCard--dry .processSteps li { min-height:92px; border-color:#377CA6; background:#377CA6; }
+.processCard--dry .processSteps li span,.processCard--dry .processSteps li b { color:#fff; }
+.processCard--dry .processSteps li b { font-size:18px; }
+@media(min-width:761px) {
+  .processCard--dry .processSteps li:not(:last-child)::after { content:''; left:calc(100% + 8px); top:50%; width:68px; height:2px; border-radius:2px; background:#377CA6; transform:translateY(-50%); }
+  .processCard--dry .processSteps li:first-child::before { content:''; position:absolute; left:calc(100% + 67px); top:calc(50% - 6px); width:0; height:0; border-top:6px solid transparent; border-bottom:6px solid transparent; border-left:10px solid #377CA6; }
+}
+@media(max-width:760px) {
+  .processHead { display:block; margin-bottom:18px; }
+  .processHead p { margin-top:9px; }
+  .processSteps,.processCard--dry .processSteps { grid-template-columns:1fr; gap:16px; }
+  .processSteps li { min-height:62px; flex-direction:row; gap:10px; }
+  .processSteps li:not(:last-child)::after { content:'↓'; left:50%; top:calc(100% - 2px); width:auto; transform:translateX(-50%); line-height:18px; }
+  .processCard--dry .processSteps li:not(:last-child)::after { color:#377CA6; }
+}
