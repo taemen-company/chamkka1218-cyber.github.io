@@ -1077,6 +1077,26 @@ footer a {
   white-space: nowrap;
 }
 
+/* Product navigation follows the matching category label on the homepage. */
+.subnav--wall .subnavInner a {
+  color: #72872E;
+  border-color: rgba(114, 135, 46, .25);
+  background: #fff;
+}
+
+.subnav--drainage .subnavInner a {
+  color: #A64B0C;
+  border-color: rgba(166, 75, 12, .42);
+  background: #fff;
+}
+
+.subnav--waterproof .subnavInner a,
+#outer .tag.tech {
+  color: #9E262D;
+  border-color: #9E262D;
+  background: #fff;
+}
+
 .product-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
