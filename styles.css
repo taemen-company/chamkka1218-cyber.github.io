@@ -448,6 +448,18 @@ header {
   pointer-events: none;
 }
 
+/* Large-scale waterproof protection board installation photo. */
+.page-title-bar.waterproof-hero {
+  background-image: url("assets/waterproof-large-site-preview.png");
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.page-title-bar.waterproof-hero::before {
+  background: linear-gradient(90deg, rgba(12, 18, 24, .68) 0%, rgba(12, 18, 24, .53) 50%, rgba(12, 18, 24, .38) 100%);
+}
+
 .page-title-bar.drainage-hero {
   background-image: url("assets/drainage-hero.png");
   background-position: center 58%;
