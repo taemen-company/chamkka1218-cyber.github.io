@@ -704,6 +704,7 @@ footer a {
   height: 48px;
   width: auto;
   object-fit: contain;
+  transform: translateY(3px);
 }
 
 /* ===== HERO SLIDER ===== */
