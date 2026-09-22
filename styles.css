@@ -2676,3 +2676,35 @@ html[data-seoul-night="true"] #top > .hero {
   transform: translateZ(0);
   backface-visibility: hidden;
 }
+
+
+/* Confirmed four-product layout: wall / floor, trench / waterproof. */
+#solutions .solutions-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+#solutions .solutions-grid .card { display:flex; flex-direction:column; }
+#solutions .solutions-grid .card .tag { align-self:flex-start; }
+#solutions .solutions-grid .card-cta { margin-top:auto; padding-top:16px; }
+#solutions .trench-card .tag,
+.subnav--trench .subnavInner a,
+.tag.trench { color:#377CA6; border-color:rgba(55,124,166,.42); background:#fff; }
+#solutions .trench-card .btn { background:#377CA6; border-color:#377CA6; color:#fff; }
+#solutions .trench-card .btn:hover { background:#2d698e; border-color:#2d698e; }
+.page-title-bar.wall-page-title.trench-page-title { background-image:url("assets/trench-hero.png"); }
+#pc-trench .productPhoto,
+#standard-details .productPhoto,
+#installation .productPhoto { width:100%; aspect-ratio:4/3; overflow:hidden; background:#f2f5f7; border-bottom:1px solid var(--line); }
+#pc-trench .productPhoto img,
+#standard-details .productPhoto img,
+#installation .productPhoto img { display:block; width:100%; height:100%; object-fit:contain; }
+#installation .productPhoto img { object-fit:cover; }
+.trench-specs { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:22px; margin-top:14px; }
+.trench-specs .card { box-shadow:var(--shadow); }
+.trench-specs h3 { margin:0 0 14px; }
+.trench-specs ul { margin:0; padding-left:20px; color:var(--muted); }
+.trench-specs li + li { margin-top:4px; }
+.trench-note { margin:18px 0 0; color:var(--muted); font-size:13px; }
+@media(max-width:700px) {
+  #solutions .solutions-grid,.trench-specs { grid-template-columns:1fr; }
+}
+@media(max-width:600px) {
+  .page-title-bar.wall-page-title.trench-page-title { background-image:url("assets/trench-hero.png"); background-position:center 58%; }
+}
