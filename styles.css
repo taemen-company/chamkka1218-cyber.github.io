@@ -712,6 +712,15 @@ footer a {
   background-image: var(--hero-bg, url('assets/hero-1.jpg'));
 }
 
+/* Main hero follows Korea Standard Time: night from 18:00 until 06:00. */
+#top > .hero {
+  background: url('images/hero_fixed.jpg') center 25% / cover no-repeat;
+}
+
+html[data-seoul-night="true"] #top > .hero {
+  background-image: url('images/hero_night_preview.png');
+}
+
 /* ===== CONSTRUCTION GALLERY ===== */
 .galleryGrid {
   display: grid;
