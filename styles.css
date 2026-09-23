@@ -1662,6 +1662,20 @@ html[data-seoul-night="true"] #top > .hero {
   font-size: 14px;
   line-height: 1.65;
 }
+.injectionHighlights {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 15px;
+}
+.injectionHighlight {
+  padding: 7px 11px;
+  border-radius: 999px;
+  background: #f1f4e6;
+  color: #5f7222;
+  font-size: 12px;
+  font-weight: 800;
+}
 .injectionFeatureList {
   display: grid;
   gap: 6px;
