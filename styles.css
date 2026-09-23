@@ -2677,6 +2677,162 @@ html[data-seoul-night="true"] #top > .hero {
   backface-visibility: hidden;
 }
 
+/* ===== AUTOMATIC KOREA-TIME NIGHT THEME (18:00–06:00) ===== */
+html[data-seoul-night="true"] body {
+  background: #e7ebf0;
+  color: #172234;
+}
+
+html[data-seoul-night="true"] header {
+  background: rgba(7, 20, 38, .96);
+  color: #f5f7fa;
+  border-bottom-color: rgba(255, 255, 255, .14);
+  box-shadow: 0 5px 16px rgba(0, 0, 0, .18);
+}
+
+html[data-seoul-night="true"] header a,
+html[data-seoul-night="true"] .mobileMenu a {
+  color: #f5f7fa;
+}
+
+html[data-seoul-night="true"] header .btn {
+  color: #fff;
+}
+
+html[data-seoul-night="true"] .mobileMenu {
+  background: rgba(11, 27, 48, .98);
+  border-color: rgba(255, 255, 255, .14);
+}
+
+html[data-seoul-night="true"] .menuBtn {
+  color: #fff;
+  background: rgba(255, 255, 255, .08);
+  border-color: rgba(255, 255, 255, .28);
+}
+
+html[data-seoul-night="true"] .brand a {
+  width: 82px;
+  height: 58px;
+  overflow: visible;
+  display: flex;
+  align-items: center;
+}
+
+html[data-seoul-night="true"] .brand .logo-img {
+  content: url('assets/logo-header-night.png');
+  position: static;
+  width: 82px;
+  height: auto;
+  max-width: none;
+  object-fit: contain;
+  transform: none;
+  filter: drop-shadow(0 0 1px rgba(235, 245, 255, .65))
+          drop-shadow(0 0 3px rgba(145, 190, 235, .24));
+}
+
+html[data-seoul-night="true"] #top > .hero::before {
+  background: linear-gradient(90deg,
+    rgba(5, 13, 25, .12) 0%,
+    rgba(5, 13, 25, .18) 45%,
+    rgba(5, 13, 25, .60) 72%,
+    rgba(5, 13, 25, .68) 100%);
+}
+
+html[data-seoul-night="true"] .page-title-bar::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: rgba(5, 13, 25, .16);
+}
+
+html[data-seoul-night="true"] .page-title-bar .container {
+  z-index: 2;
+}
+
+html[data-seoul-night="true"] main > section:not(.hero):not(.page-title-bar),
+html[data-seoul-night="true"] #company,
+html[data-seoul-night="true"] #projects,
+html[data-seoul-night="true"] #consult {
+  background: #eef1f5 !important;
+}
+
+html[data-seoul-night="true"] main > section.bg,
+html[data-seoul-night="true"] #solutions,
+html[data-seoul-night="true"] #resources {
+  background: #e2e7ed !important;
+}
+
+html[data-seoul-night="true"] .subnav {
+  background: rgba(225, 230, 236, .96);
+  border-color: #c8d0da;
+}
+
+html[data-seoul-night="true"] .card,
+html[data-seoul-night="true"] .lineupCard,
+html[data-seoul-night="true"] .specLibrary,
+html[data-seoul-night="true"] .specCard,
+html[data-seoul-night="true"] .photoCard,
+html[data-seoul-night="true"] .featureDetailPanel,
+html[data-seoul-night="true"] .injectionFeaturePanel,
+html[data-seoul-night="true"] .matFeaturePanel,
+html[data-seoul-night="true"] .consult-grid,
+html[data-seoul-night="true"] .caseListItem,
+html[data-seoul-night="true"] .processCard,
+html[data-seoul-night="true"] .trench-product-card,
+html[data-seoul-night="true"] .trench-product-photo,
+html[data-seoul-night="true"] .trench-note,
+html[data-seoul-night="true"] table {
+  background: #fafbfc;
+  border-color: #d3dae3;
+  box-shadow: 0 10px 26px rgba(8, 20, 38, .08);
+}
+
+html[data-seoul-night="true"] .caseLibrary {
+  background: #e1e6ec;
+  border-color: #cbd3dd;
+}
+
+html[data-seoul-night="true"] .muted,
+html[data-seoul-night="true"] .photoMeta,
+html[data-seoul-night="true"] .specMeta {
+  color: #596779;
+}
+
+html[data-seoul-night="true"] input,
+html[data-seoul-night="true"] textarea {
+  background: #fafbfc;
+  color: #172234;
+  border-color: #cbd3dd;
+}
+
+html[data-seoul-night="true"] footer {
+  background: #101b2b;
+}
+
+body,
+header,
+.mobileMenu,
+main > section,
+.card,
+.caseLibrary,
+.caseListItem,
+.lineupCard,
+.specLibrary,
+.specCard,
+.photoCard,
+.consult-grid {
+  transition: background-color .35s ease, border-color .35s ease, color .35s ease;
+}
+
+@media (max-width: 860px) {
+  html[data-seoul-night="true"] .brand a,
+  html[data-seoul-night="true"] .brand .logo-img {
+    width: 76px;
+  }
+}
+
 
 /* Confirmed four-product layout: wall / floor, trench / waterproof. */
 #solutions .solutions-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
