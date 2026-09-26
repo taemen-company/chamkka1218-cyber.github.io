@@ -293,6 +293,38 @@ header {
   font-size: 20px;
 }
 
+.brand .company-wordmark {
+  order: 1;
+  flex: 0 0 139px;
+  width: 139px;
+  height: 22px;
+  margin-left: 17px;
+  position: relative;
+  overflow: hidden;
+  background: url('assets/company-wordmark-source.png') -83px -21.84px / 387.8px auto no-repeat;
+  mix-blend-mode: multiply;
+}
+
+html[data-seoul-night="true"] .brand .company-wordmark {
+  filter: invert(1) grayscale(1) contrast(1.3) brightness(.98);
+  mix-blend-mode: screen;
+  opacity: .90;
+}
+
+html[data-seoul-night="true"] .brand .company-wordmark::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: inherit;
+  filter: blur(1px);
+  mix-blend-mode: multiply;
+  opacity: .20;
+}
+
+@media (max-width: 480px) {
+  .brand .company-wordmark { margin-left: 4px; }
+}
+
 .brand .logo {
   width: 34px;
   height: 34px;
