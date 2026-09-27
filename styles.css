@@ -295,14 +295,17 @@ header {
 
 .brand .company-wordmark {
   order: 1;
-  flex: 0 0 139px;
-  width: 139px;
-  height: 22px;
+  flex: 0 0 111.2px;
+  width: 111.2px;
+  height: 17.8px;
   margin-left: 17px;
   position: relative;
   overflow: hidden;
-  background: url('assets/company-wordmark-source.png') -83px -21.84px / 387.8px auto no-repeat;
-  mix-blend-mode: multiply;
+  background: url('assets/company-wordmark-day-matched-sharp.png') center / contain no-repeat;
+  mix-blend-mode: normal;
+  image-rendering: auto;
+  transform: translateZ(0);
+  backface-visibility: hidden;
 }
 
 html[data-seoul-night="true"] .brand .company-wordmark {
@@ -322,7 +325,7 @@ html[data-seoul-night="true"] .brand .company-wordmark::after {
 }
 
 @media (max-width: 480px) {
-  .brand .company-wordmark { margin-left: 4px; }
+  .brand .company-wordmark { margin-left: 17px; }
 }
 
 .brand .logo {
@@ -334,10 +337,11 @@ html[data-seoul-night="true"] .brand .company-wordmark::after {
 
 .brand a {
   text-decoration: none;
-  display: block;
-  width: 53px;
-  height: 54px;
-  overflow: hidden;
+  display: flex;
+  align-items: center;
+  width: 57.4px;
+  height: 58px;
+  overflow: visible;
 }
 
 .nav ul {
@@ -737,11 +741,13 @@ footer a {
 
 
 .logo-img {
-  height: 70px;
-  width: auto;
+  content: url('assets/logo-header-day-matched.png');
+  width: 57.4px;
+  height: auto;
   max-width: none;
   display: block;
-  transform: translate(-10px, -7px);
+  object-fit: contain;
+  transform: none;
 }
 
 /* ===== HERO SLIDER ===== */
