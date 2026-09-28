@@ -300,7 +300,8 @@ ${message}`
       desc: '클릭하여 사진/도면을 확대해서 확인할 수 있습니다.',
       images: [
         'assets/spec-730-1.jpg',
-        'assets/spec-730-2.jpg'
+        'assets/spec-730-2.jpg',
+        'assets/products/mat-45h-drawing.png'
       ]
     },
     specDetail: {
