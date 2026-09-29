@@ -1,5 +1,5 @@
 (function () {
-  const menuBtn = document.getElementById('menuBtn');
+const menuBtn = document.getElementById('menuBtn');
   const mobileMenu = document.getElementById('mobileMenu');
 
   function closeMenu() {
@@ -456,5 +456,26 @@ ${message}`
   imgEl.addEventListener('pointerup', (e) => {
     if (e.pointerType === 'mouse') return;
     onSwipeEnd(e);
+  });
+
+})();
+
+// Environmental label certificate: keep a crawlable link while enhancing it with a PDF dialog.
+(function () {
+  const certificateModal = document.getElementById('environmentCertificateModal');
+  const certificateOpeners = document.querySelectorAll('[data-certificate-open]');
+  const certificateClose = certificateModal?.querySelector('.certificate-modal-close');
+
+  certificateOpeners.forEach((opener) => {
+    opener.addEventListener('click', (event) => {
+      if (!certificateModal?.showModal) return;
+      event.preventDefault();
+      certificateModal.showModal();
+    });
+  });
+
+  certificateClose?.addEventListener('click', () => certificateModal.close());
+  certificateModal?.addEventListener('click', (event) => {
+    if (event.target === certificateModal) certificateModal.close();
   });
 })();

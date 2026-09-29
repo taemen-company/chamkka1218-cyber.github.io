@@ -34,7 +34,7 @@
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800;900&amp;display=swap" rel="stylesheet"/>
-<link href="styles.css?v=20260927-brand-match" rel="stylesheet">
+<link href="styles.css?v=20260930-certification" rel="stylesheet">
 </link></head>
 <body>
 <header>
@@ -129,7 +129,7 @@
             </p>
 <div class="badges">
 <span class="tag tech">연구개발전담부서</span>
-<span class="tag eco">환경표지 인증</span>
+<a class="tag eco certificate-badge" href="environment-certification.html" data-certificate-open aria-haspopup="dialog">환경표지 인증 <span aria-hidden="true">▣</span><span class="certificate-badge-hint">인증서 보기</span></a>
 <span class="tag fire">특허 보유</span>
 <span class="tag tech">벤처기업 인증</span>
 </div>
@@ -476,6 +476,15 @@
 <a class="btn small resource-download" download="" href="assets/company-profile-homepage.pdf">다운로드</a>
 </div>
 </div>
+<div class="card resource-card resource-card--certificate">
+<span class="tag resource-tag">인증</span>
+<h3>환경표지 인증서</h3>
+<p>TM 바닥 배수판·TM 벽체 배수판<br/>환경표지 제30221호</p>
+<div style="margin-top:14px; display:flex; gap:8px; flex-wrap:wrap;">
+<a class="btn small resource-download" href="environment-certification.html">인증 정보</a>
+<a class="btn small secondary" download href="assets/taemen-environmental-label-certificate-30221.pdf">PDF 다운로드</a>
+</div>
+</div>
 </div>
 <p class="muted" style="text-align:center; margin-top:14px;">
           * 일부 증빙(세금/인감/등기 등)은 요청 시 제공 가능합니다.
@@ -558,7 +567,24 @@
 <div aria-label="슬라이드 페이지네이션" class="sliderDots" id="specDots"></div>
 </div>
 </div>
+<dialog class="certificate-modal" id="environmentCertificateModal" aria-labelledby="environmentCertificateTitle">
+<div class="certificate-modal-panel">
+<button class="certificate-modal-close" type="button" aria-label="환경표지 인증서 팝업 닫기">×</button>
+<div class="certificate-modal-header">
+<div>
+<span class="tag eco">환경표지 인증</span>
+<h2 id="environmentCertificateTitle">태멘 환경표지 인증서</h2>
+<p>환경표지 제30221호 · TM 바닥 배수판 · TM 벽체 배수판</p>
+</div>
+<div class="certificate-modal-actions">
+<a class="btn small" href="environment-certification.html">인증 정보 자세히 보기</a>
+<a class="btn small secondary" download href="assets/taemen-environmental-label-certificate-30221.pdf">PDF 다운로드</a>
+</div>
+</div>
+<iframe title="주식회사 태멘 환경표지 인증서 PDF" src="assets/taemen-environmental-label-certificate-30221.pdf#page=1&view=FitH"></iframe>
+</div>
+</dialog>
 <script src="header-installation.js?v=20260927-1"></script>
-<script src="main.js?v=20260913-2"></script>
+<script src="main.js?v=20260930-certification"></script>
 </body>
 </html>
