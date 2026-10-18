@@ -3069,7 +3069,7 @@ main > section,
 
 /* ===== PREMIUM MOTION HOME (2026-10) ===== */
 .premium-header {
-  height: 108px;
+  height: 82px;
   background: linear-gradient(180deg, rgba(5,18,33,.72), rgba(5,18,33,.42));
   border-bottom: 1px solid rgba(255,255,255,.18);
   box-shadow: none;
@@ -3093,21 +3093,21 @@ html[data-seoul-night="true"] .premium-header {
 }
 
 .premium-header .brand { gap: 18px; }
-.premium-header .brand a { order: 0; width: 76px; height: 74px; }
+.premium-header .brand a { order: 0; width: 61px; height: 60px; }
 .premium-header .brand .logo-img,
 html[data-seoul-night="true"] .premium-header .brand .logo-img {
   content: url('assets/logo-header-night.png');
-  width: 76px;
+  width: 61px;
   height: auto;
   filter: drop-shadow(0 0 10px rgba(255,255,255,.18));
 }
 .premium-header .brand .company-wordmark,
 html[data-seoul-night="true"] .premium-header .brand .company-wordmark {
   order: 1;
-  width: 111.2px;
-  height: 17.8px;
-  flex-basis: 111.2px;
-  margin-left: 18px;
+  width: 105px;
+  height: 16.8px;
+  flex-basis: 105px;
+  margin-left: 15px;
   overflow: visible;
   background-image: url('assets/company-wordmark-night-matched.png');
   filter: drop-shadow(0 0 3px rgba(145,190,235,.2));
@@ -3115,14 +3115,14 @@ html[data-seoul-night="true"] .premium-header .brand .company-wordmark {
 .premium-header .brand .company-wordmark::before {
   content: "";
   position: absolute;
-  left: -18px;
+  left: -15px;
   top: -2px;
   width: 1px;
-  height: 22px;
+  height: 20px;
   background: rgba(255,255,255,.3);
 }
 
-.premium-header .nav ul { gap: 34px; }
+.premium-header .nav ul { gap: 29px; }
 .premium-header .nav ul a,
 html[data-seoul-night="true"] .premium-header .nav ul a {
   color: #fff;
@@ -3131,17 +3131,17 @@ html[data-seoul-night="true"] .premium-header .nav ul a {
   transition: opacity .2s ease;
 }
 .premium-header .nav ul a:hover { color: #fff; opacity: 1; }
-.premium-header .premium-consult { padding-left: 28px; border-left: 1px solid rgba(255,255,255,.28); }
-.premium-header .premium-consult a { display: flex; align-items: center; gap: 18px; opacity: 1 !important; }
+.premium-header .premium-consult { padding-left: 23px; border-left: 1px solid rgba(255,255,255,.28); }
+.premium-header .premium-consult a { display: flex; align-items: center; gap: 14px; opacity: 1 !important; }
 .premium-header .premium-consult span {
   display: grid;
   place-items: center;
-  width: 38px;
-  height: 38px;
+  width: 34px;
+  height: 34px;
   border-radius: 50%;
   background: #ef9000;
   color: #fff;
-  font-size: 17px;
+  font-size: 15px;
 }
 
 .premium-hero {
@@ -3218,7 +3218,7 @@ html[data-seoul-night="true"] .premium-shade {
   position: absolute;
   z-index: 5;
   left: 0;
-  top: 108px;
+  top: 82px;
   bottom: 0;
   width: 5.7vw;
   min-width: 70px;
@@ -3370,11 +3370,11 @@ html[data-seoul-night="true"] .premium-shade {
 }
 
 @media (max-width: 1050px) {
-  .premium-header { height: 86px; }
+  .premium-header { height: 72px; }
   .premium-nav-shell { padding: 0 24px; }
   .premium-header .brand a,
   .premium-header .brand .logo-img,
-  html[data-seoul-night="true"] .premium-header .brand .logo-img { width: 65px; }
+  html[data-seoul-night="true"] .premium-header .brand .logo-img { width: 54px; }
   .premium-header .brand .company-wordmark { display: none; }
   .premium-header .menuBtn {
     display: inline-flex;
@@ -3401,7 +3401,7 @@ html[data-seoul-night="true"] .premium-shade {
   .premium-mobile-menu {
     position: fixed;
     z-index: 999;
-    top: 86px;
+    top: 72px;
     left: 0;
     right: 0;
     background: rgba(7,20,38,.98);
@@ -3442,4 +3442,30 @@ html[data-seoul-night="true"] .premium-shade {
   0% { opacity: 0; transform: translateY(12px); }
   5%, 27% { opacity: 1; transform: translateY(0); }
   31%, 100% { opacity: 0; transform: translateY(-8px); }
+}
+
+/* ===== HOME SECTION SNAP SCROLL ===== */
+html.premium-home {
+  --headerH: 82px;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--headerH);
+}
+
+html.premium-home main > section,
+html.premium-home body > footer {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+
+html.premium-home .premium-hero {
+  scroll-margin-top: 0;
+}
+
+@media (max-width: 1050px) {
+  html.premium-home { --headerH: 72px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.premium-home { scroll-behavior: auto; }
 }
