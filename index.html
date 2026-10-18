@@ -34,17 +34,14 @@
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800;900&amp;display=swap" rel="stylesheet"/>
-<link href="styles.css?v=20260930-certification" rel="stylesheet">
+<link href="styles.css?v=20261018-premium-home" rel="stylesheet">
 </link></head>
 <body>
-<header>
-<div aria-label="상단 메뉴" class="container nav">
+<header class="premium-header">
+<div aria-label="상단 메뉴" class="premium-nav-shell nav">
 <div class="brand">
 <span class="company-wordmark" role="img" aria-label="주식회사 태멘"></span>
 <a aria-label="태멘 로고 — 페이지 맨 위로" href="#top"><img alt="태멘" class="logo-img" src="assets/logo-header-transparent.png"/></a>
-</div>
-<div class="header-installation" aria-label="클립바와 벽체 배수판 시공 애니메이션">
-<canvas id="headerInstallationCanvas" width="940" height="132"></canvas>
 </div>
 <button aria-controls="mobileMenu" aria-expanded="false" class="menuBtn" id="menuBtn">☰ 메뉴</button>
 <ul aria-label="메인 메뉴">
@@ -52,11 +49,11 @@
 <li><a href="#solutions">제품·공법</a></li>
 <li><a href="#projects">시공사례</a></li>
 <li><a href="#resources">자료실</a></li>
-<li><a class="btn small" href="#consult">견적·상담</a></li>
+<li class="premium-consult"><a href="#consult">견적·상담 <span aria-hidden="true">↗</span></a></li>
 </ul>
 </div>
 </header>
-<div class="mobileMenu" id="mobileMenu">
+<div class="mobileMenu premium-mobile-menu" id="mobileMenu">
 <a href="#company">회사소개</a>
 <a href="#solutions">제품·공법</a>
 <a href="#projects">시공사례</a>
@@ -65,24 +62,40 @@
 </div>
 <main id="top">
 <!-- HERO -->
-<section aria-label="메인 소개" class="hero">
-<div class="hero-inner">
-<h1>지하이중벽 · 배수판 전문 업체</h1>
-<p>
-          태멘은 지하공간의 결로·습기·오염 문제를 개선하는 벽체 이중벽 시스템과 바닥 배수판 공법을
-          현장 조건에 맞춰 설계·납품·시공합니다.
-        </p>
-<div class="ctaRow">
-<a class="btn" href="#consult">견적·구매 상담</a>
-<a class="btn secondary" download="" href="assets/catalog.pdf">카다로그 다운로드</a>
-<a class="btn secondary" download="" href="assets/company-profile-homepage.pdf">지명원 다운로드</a>
+<section aria-label="태멘 메인 소개" class="premium-hero">
+<div aria-hidden="true" class="premium-scenes">
+<div class="premium-scene premium-scene-one"></div>
+<div class="premium-scene premium-scene-two"></div>
+<div class="premium-scene premium-scene-three"></div>
 </div>
-<div aria-label="핵심 가치" class="pillRow">
-<span class="pill">배수·환기 구조</span>
-<span class="pill">현장 적용성</span>
-<span class="pill">유지관리 효율</span>
-<span class="pill">특허·인증 기반</span>
+<div aria-hidden="true" class="premium-shade"></div>
+<div aria-hidden="true" class="premium-grid"></div>
+<div aria-hidden="true" class="premium-corner"></div>
+<aside aria-hidden="true" class="premium-rail"><span>TAEMEN · UNDERGROUND SPACE SOLUTIONS</span></aside>
+<div aria-hidden="true" class="premium-number"><strong></strong><span>PROJECT SCENE</span></div>
+<div class="premium-copy-wrap">
+<article class="premium-copy premium-copy-one">
+<div class="premium-overline">BUILDING A BETTER STANDARD</div>
+<h1>보이지 않는 공간까지,<span>더 오래가는 기준으로.</span></h1>
+<p>지하공간의 결로·습기·오염을 구조적으로 개선하는 전문 솔루션. 태멘은 자재와 공법을 함께 설계합니다.</p>
+<div class="premium-actions"><a class="premium-primary" href="#company">태멘 알아보기 <b aria-hidden="true">→</b></a><a class="premium-ghost" href="#solutions">제품 솔루션</a></div>
+</article>
+<article class="premium-copy premium-copy-two">
+<div class="premium-overline">WALL DRAINAGE SYSTEM</div>
+<h2>정교하게 결합하고,<span>깨끗하게 완성합니다.</span></h2>
+<p>클립바 체결 방식의 벽체 배수 시스템으로 빠른 시공과 균일한 마감 품질을 구현합니다.</p>
+<div class="premium-actions"><a class="premium-primary" href="wall.html">벽체 배수판 <b aria-hidden="true">→</b></a><a class="premium-ghost" href="#projects">시공사례</a></div>
+</article>
+<article class="premium-copy premium-copy-three">
+<div class="premium-overline">DESIGNED FOR THE FIELD</div>
+<h2>현장에서 증명되는,<span>실용적인 기술.</span></h2>
+<p>다양한 현장 조건을 반영한 배수·방수·트렌치 솔루션으로 더 나은 지하공간을 만듭니다.</p>
+<div class="premium-actions"><a class="premium-primary" href="#projects">시공사례 보기 <b aria-hidden="true">→</b></a><a class="premium-ghost" href="#consult">견적 상담</a></div>
+</article>
 </div>
+<div class="premium-bottom">
+<div class="premium-proof"><div><small>SPECIALTY</small><b>지하이중벽 · 배수판 전문</b></div><div><small>ECO CERTIFIED</small><b>환경표지 제30221호</b></div></div>
+<div class="premium-progress"><div><span>AUTO SCENE</span><span>07 SEC</span></div><i></i></div>
 </div>
 </section>
 <!-- COMPANY -->
@@ -583,7 +596,6 @@
 <iframe title="주식회사 태멘 환경표지 인증서 PDF" src="assets/taemen-environmental-label-certificate-30221.pdf#page=1&view=FitH"></iframe>
 </div>
 </dialog>
-<script src="header-installation.js?v=20260927-1"></script>
-<script src="main.js?v=20260930-certification"></script>
+<script src="main.js?v=20261018-premium-home"></script>
 </body>
 </html>
