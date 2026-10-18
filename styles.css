@@ -3452,6 +3452,10 @@ html.premium-home {
   scroll-padding-top: var(--headerH);
 }
 
+@media (min-width: 1051px) {
+  html.premium-home { scroll-snap-type: none; }
+}
+
 html.premium-home main > section,
 html.premium-home body > footer {
   scroll-snap-align: start;

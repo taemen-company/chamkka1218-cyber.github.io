@@ -49,6 +49,129 @@ ${message}`
   });
 })();
 
+// ===== CLEAN FULL-PAGE WHEEL NAVIGATION (desktop) =====
+(function () {
+  if (!document.documentElement.classList.contains('premium-home')) return;
+
+  const desktopQuery = window.matchMedia('(min-width: 1051px)');
+  let snapPoints = [];
+  let moving = false;
+  let resizeTimer;
+  let lastWheelAt = 0;
+
+  function headerHeight() {
+    const value = getComputedStyle(document.documentElement).getPropertyValue('--headerH');
+    return Number.parseFloat(value) || 82;
+  }
+
+  function buildSnapPoints() {
+    if (!desktopQuery.matches) {
+      snapPoints = [];
+      return;
+    }
+
+    const header = headerHeight();
+    const pageHeight = Math.max(420, window.innerHeight - header);
+    const maxScroll = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
+    const points = [0];
+
+    for (let point = pageHeight; point <= maxScroll; point += pageHeight) {
+      points.push(Math.round(point));
+    }
+
+    const lastPoint = points[points.length - 1];
+    const remainder = maxScroll - lastPoint;
+
+    if (remainder > 1) {
+      if (remainder < pageHeight * .55 && points.length > 1) {
+        const previousPoint = points[points.length - 2];
+        const balancedStep = (maxScroll - previousPoint) / 2;
+        points[points.length - 1] = Math.round(previousPoint + balancedStep);
+      }
+      points.push(Math.round(maxScroll));
+    }
+
+    snapPoints = [...new Set(points)].sort((a, b) => a - b);
+  }
+
+  function canUsePageWheel(target) {
+    if (!(target instanceof Element)) return true;
+    if (target.closest('dialog[open], .modal.open, input, textarea, select, [contenteditable="true"]')) return false;
+
+    let element = target;
+    while (element && element !== document.body) {
+      const style = getComputedStyle(element);
+      const scrollable = /(auto|scroll)/.test(style.overflowY) && element.scrollHeight > element.clientHeight + 2;
+      if (scrollable) return false;
+      element = element.parentElement;
+    }
+    return true;
+  }
+
+  function easeInOutCubic(value) {
+    return value < .5 ? 4 * value * value * value : 1 - Math.pow(-2 * value + 2, 3) / 2;
+  }
+
+  function moveTo(destination) {
+    const start = window.scrollY;
+    const distance = destination - start;
+    const duration = 680;
+    const startedAt = performance.now();
+    moving = true;
+
+    function frame(now) {
+      const elapsed = Math.min(1, (now - startedAt) / duration);
+      window.scrollTo(0, start + distance * easeInOutCubic(elapsed));
+      if (elapsed < 1) {
+        requestAnimationFrame(frame);
+      } else {
+        window.scrollTo(0, destination);
+        releaseWhenWheelStops();
+      }
+    }
+
+    requestAnimationFrame(frame);
+  }
+
+  function releaseWhenWheelStops() {
+    const quietFor = performance.now() - lastWheelAt;
+    if (quietFor >= 240) {
+      moving = false;
+      return;
+    }
+    window.setTimeout(releaseWhenWheelStops, 240 - quietFor);
+  }
+
+  function onWheel(event) {
+    if (!desktopQuery.matches || event.ctrlKey || event.shiftKey || Math.abs(event.deltaY) < 5) return;
+    if (!canUsePageWheel(event.target)) return;
+
+    event.preventDefault();
+    lastWheelAt = performance.now();
+    if (moving || !snapPoints.length) return;
+
+    const current = window.scrollY;
+    const tolerance = 18;
+    let destination;
+
+    if (event.deltaY > 0) {
+      destination = snapPoints.find(point => point > current + tolerance);
+    } else {
+      destination = [...snapPoints].reverse().find(point => point < current - tolerance);
+    }
+
+    if (destination !== undefined) moveTo(destination);
+  }
+
+  buildSnapPoints();
+  window.addEventListener('load', buildSnapPoints);
+  window.addEventListener('resize', () => {
+    window.clearTimeout(resizeTimer);
+    resizeTimer = window.setTimeout(buildSnapPoints, 160);
+  });
+  window.addEventListener('wheel', onWheel, { passive: false });
+})();
+
 
 // ===== HERO SLIDER (2~3장 자동 전환) =====
 (function () {
