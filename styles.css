@@ -3425,11 +3425,21 @@ html[data-seoul-night="true"] .premium-shade {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .premium-scene,
-  .premium-copy,
-  .premium-number strong::after,
-  .premium-progress i::after { animation: none; }
-  .premium-scene-one,
-  .premium-copy-one { opacity: 1; transform: none; }
-  .premium-number strong::after { content: "01"; }
+  .premium-scene {
+    animation-name: premiumSceneReduced;
+    transform: none;
+  }
+  .premium-copy { animation-name: premiumCopyReduced; }
+}
+
+@keyframes premiumSceneReduced {
+  0% { opacity: 0; }
+  4%, 29% { opacity: 1; }
+  33%, 100% { opacity: 0; }
+}
+
+@keyframes premiumCopyReduced {
+  0% { opacity: 0; transform: translateY(12px); }
+  5%, 27% { opacity: 1; transform: translateY(0); }
+  31%, 100% { opacity: 0; transform: translateY(-8px); }
 }
