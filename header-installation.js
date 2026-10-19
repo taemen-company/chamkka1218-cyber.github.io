@@ -7,6 +7,7 @@
   const ground = 120;
   const barXs = [72, 186, 300, 414, 528, 642, 756, 870];
   const cycle = 32;
+  const playbackSpeed = .8;
   const clamp = (value, min = 0, max = 1) => Math.max(min, Math.min(max, value));
   const smooth = (value) => {
     const v = clamp(value);
@@ -121,60 +122,152 @@
     ctx.restore();
   }
 
+  const workerScale = 1.28;
+
+  function drawWorkerHalo(x, uniform) {
+    const halo = ctx.createRadialGradient(x, 70, 2, x, 70, 47);
+    halo.addColorStop(0, uniform === 'green' ? 'rgba(76,132,94,.16)' : 'rgba(43,107,164,.15)');
+    halo.addColorStop(1, 'rgba(255,255,255,0)');
+    ctx.fillStyle = halo;
+    ctx.fillRect(x - 50, 18, 100, 104);
+  }
+
   function drawShadow(x, scale = 1) {
     ctx.save();
-    ctx.globalAlpha *= .18;
-    ctx.fillStyle = '#20272c';
+    ctx.globalAlpha *= .2;
+    ctx.fillStyle = '#263039';
+    ctx.filter = 'blur(1px)';
     ctx.beginPath();
-    ctx.ellipse(x, ground + 1, 22 * scale, 4.5, 0, 0, Math.PI * 2);
+    ctx.ellipse(x, ground + 1, 28 * scale, 5, 0, 0, Math.PI * 2);
     ctx.fill();
     ctx.restore();
   }
 
   function drawWorkerBase(x, pose, phase, uniform = 'blue') {
     const walking = pose === 'walk';
-    const bob = walking ? Math.sin(phase * Math.PI * 2) * 2.2 : 0;
-    const swing = walking ? Math.sin(phase * Math.PI * 2) * 7 : 0;
+    const bob = walking ? Math.sin(phase * Math.PI * 2) * 2 : 0;
+    const swing = walking ? Math.sin(phase * Math.PI * 2) * 6 : 0;
     const centerY = ground - 42 + bob;
     const colors = uniform === 'green'
-      ? { dark: '#315d45', middle: '#4f8363', light: '#6b9a78', strap: '#427054' }
-      : { dark: '#204b76', middle: '#326a9d', light: '#417cac', strap: '#285d8f' };
+      ? { outline: '#1e3c2b', dark: '#28513a', middle: '#477b59', light: '#6a9b78', strap: '#376348', stitch: '#9bc0a5' }
+      : { outline: '#123353', dark: '#194773', middle: '#2e6799', light: '#4f86b4', strap: '#215885', stitch: '#9fc1dc' };
 
-    drawShadow(x, walking ? 1.05 : .9);
-    line(x - 5, centerY + 22, x - 8 - swing, ground - 7, 8, colors.dark);
-    line(x + 5, centerY + 22, x + 8 + swing, ground - 7, 8, colors.middle);
-    line(x - 12 - swing, ground - 5, x - 2 - swing, ground - 5, 6, '#2b3035');
-    line(x + 3 + swing, ground - 5, x + 14 + swing, ground - 5, 6, '#2b3035');
+    drawWorkerHalo(x, uniform);
+    drawShadow(x, walking ? 1.05 : .92);
+    ctx.save();
+    ctx.translate(x, ground);
+    ctx.scale(workerScale, workerScale);
+    ctx.translate(-x, -ground);
+
+    line(x - 5, centerY + 22, x - 8 - swing, ground - 7, 11, colors.outline);
+    line(x + 5, centerY + 22, x + 8 + swing, ground - 7, 11, colors.outline);
+    line(x - 5, centerY + 22, x - 8 - swing, ground - 7, 7.5, colors.dark);
+    line(x + 5, centerY + 22, x + 8 + swing, ground - 7, 7.5, colors.middle);
+    line(x - 13 - swing, ground - 5, x - 2 - swing, ground - 5, 8, '#171d22');
+    line(x + 3 + swing, ground - 5, x + 15 + swing, ground - 5, 8, '#171d22');
+    line(x - 12 - swing, ground - 6, x - 3 - swing, ground - 6, 3, '#53606a');
+    line(x + 4 + swing, ground - 6, x + 14 + swing, ground - 6, 3, '#53606a');
 
     ctx.fillStyle = '#fff';
-    roundedRect(x - 14, centerY - 3, 28, 29, 9);
+    ctx.strokeStyle = '#d9dee2';
+    ctx.lineWidth = 1.5;
+    roundedRect(x - 15, centerY - 4, 30, 31, 9);
     ctx.fill();
-    const overalls = ctx.createLinearGradient(x - 11, 0, x + 11, 0);
+    ctx.stroke();
+
+    const overalls = ctx.createLinearGradient(x - 12, 0, x + 12, 0);
     overalls.addColorStop(0, colors.dark);
-    overalls.addColorStop(.55, colors.light);
+    overalls.addColorStop(.54, colors.light);
     overalls.addColorStop(1, colors.dark);
     ctx.fillStyle = overalls;
-    roundedRect(x - 11, centerY + 5, 22, 23, 5);
+    ctx.strokeStyle = colors.outline;
+    ctx.lineWidth = 1.2;
+    roundedRect(x - 12, centerY + 4, 24, 25, 5);
     ctx.fill();
-    line(x - 8, centerY + 5, x - 5, centerY - 8, 3.5, colors.strap);
-    line(x + 8, centerY + 5, x + 5, centerY - 8, 3.5, colors.strap);
+    ctx.stroke();
+    line(x - 8, centerY + 5, x - 5, centerY - 9, 4, colors.strap);
+    line(x + 8, centerY + 5, x + 5, centerY - 9, 4, colors.strap);
+
+    ctx.fillStyle = '#c6933d';
+    ctx.strokeStyle = '#795821';
+    ctx.lineWidth = .8;
+    [[x - 6, centerY - 5], [x + 6, centerY - 5]].forEach(([buckleX, buckleY]) => {
+      roundedRect(buckleX - 2, buckleY - 2, 4, 4, 1);
+      ctx.fill();
+      ctx.stroke();
+    });
+    ctx.strokeStyle = colors.stitch;
+    ctx.lineWidth = .9;
+    roundedRect(x - 6, centerY + 10, 12, 8, 2);
+    ctx.stroke();
+    line(x - 5, centerY + 13, x + 5, centerY + 13, .8, colors.stitch);
+
     ctx.fillStyle = '#d59a4a';
-    roundedRect(x + 3, centerY + 13, 5, 5, 1);
+    roundedRect(x + 4, centerY + 14, 5, 5, 1);
     ctx.fill();
 
-    ctx.fillStyle = '#f1ad78';
+    ctx.fillStyle = '#f2ad79';
+    ctx.strokeStyle = '#b86e4d';
+    ctx.lineWidth = 1.1;
     ctx.beginPath();
-    ctx.arc(x, centerY - 15, 12.2, 0, Math.PI * 2);
+    ctx.arc(x, centerY - 16, 12.5, 0, Math.PI * 2);
     ctx.fill();
+    ctx.stroke();
+    ctx.fillStyle = 'rgba(255,221,190,.52)';
+    ctx.beginPath(); ctx.ellipse(x - 4, centerY - 21, 4.5, 2.5, -.45, 0, Math.PI * 2); ctx.fill();
     ctx.fillStyle = '#ef9862';
-    ctx.beginPath(); ctx.arc(x - 12, centerY - 14, 2.8, 0, Math.PI * 2); ctx.fill();
-    ctx.beginPath(); ctx.arc(x + 12, centerY - 14, 2.8, 0, Math.PI * 2); ctx.fill();
-    ctx.fillStyle = '#352923';
-    ctx.beginPath(); ctx.arc(x + 4, centerY - 16, 1.25, 0, Math.PI * 2); ctx.fill();
+    ctx.beginPath(); ctx.arc(x - 12, centerY - 15, 2.7, 0, Math.PI * 2); ctx.fill();
+    ctx.beginPath(); ctx.arc(x + 12, centerY - 15, 2.7, 0, Math.PI * 2); ctx.fill();
+
+    const helmet = ctx.createLinearGradient(x, centerY - 34, x, centerY - 23);
+    helmet.addColorStop(0, '#ffd95b');
+    helmet.addColorStop(.58, '#f4b81f');
+    helmet.addColorStop(1, '#d99508');
+    ctx.fillStyle = helmet;
+    ctx.strokeStyle = '#8e6209';
+    ctx.lineWidth = 1.15;
+    ctx.beginPath();
+    ctx.moveTo(x - 10.5, centerY - 25.5);
+    ctx.quadraticCurveTo(x - 9.5, centerY - 34, x, centerY - 34.5);
+    ctx.quadraticCurveTo(x + 9.5, centerY - 34, x + 10.5, centerY - 25.5);
+    ctx.closePath();
+    ctx.fill();
+    ctx.stroke();
+    ctx.fillStyle = '#ffd75a';
+    roundedRect(x - 13.5, centerY - 27, 27, 4.2, 2);
+    ctx.fill();
+    ctx.stroke();
+    ctx.strokeStyle = 'rgba(255,255,255,.72)';
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.moveTo(x - 6.5, centerY - 30.5);
+    ctx.quadraticCurveTo(x - 2, centerY - 34, x + 2.2, centerY - 33.7);
+    ctx.stroke();
+
+    ctx.strokeStyle = '#6c4538';
+    ctx.lineWidth = 1.05;
+    ctx.lineCap = 'round';
+    ctx.beginPath(); ctx.moveTo(x - 6.3, centerY - 20.5); ctx.quadraticCurveTo(x - 4.1, centerY - 22, x - 1.9, centerY - 20.6); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(x + 1.6, centerY - 20.6); ctx.quadraticCurveTo(x + 4.2, centerY - 22, x + 6.6, centerY - 20.3); ctx.stroke();
+    ctx.fillStyle = '#fffaf3';
+    ctx.strokeStyle = '#a7654a';
+    ctx.lineWidth = .75;
+    ctx.beginPath(); ctx.ellipse(x - 4, centerY - 17.2, 2.3, 1.9, -.08, 0, Math.PI * 2); ctx.fill(); ctx.stroke();
+    ctx.beginPath(); ctx.ellipse(x + 4.2, centerY - 17.1, 2.3, 1.9, .08, 0, Math.PI * 2); ctx.fill(); ctx.stroke();
+    ctx.fillStyle = '#2d2825';
+    ctx.beginPath(); ctx.arc(x - 3.4, centerY - 17.1, 1.15, 0, Math.PI * 2); ctx.fill();
+    ctx.beginPath(); ctx.arc(x + 4.8, centerY - 17, 1.15, 0, Math.PI * 2); ctx.fill();
+    ctx.beginPath();
+    ctx.moveTo(x + .7, centerY - 16.2);
+    ctx.quadraticCurveTo(x + 2.2, centerY - 13.8, x + .2, centerY - 13.5);
+    ctx.strokeStyle = '#9c5b45';
+    ctx.lineWidth = .85;
+    ctx.stroke();
     ctx.strokeStyle = '#7e4835';
-    ctx.lineWidth = 1.2;
-    ctx.beginPath(); ctx.arc(x + 2, centerY - 12, 4.5, .35, 2.4); ctx.stroke();
-    return { centerY };
+    ctx.lineWidth = 1.15;
+    ctx.beginPath(); ctx.arc(x + .5, centerY - 12.4, 4.9, .35, 2.48); ctx.stroke();
+    ctx.restore();
+    return { centerY, scale: workerScale };
   }
 
   function drawArmsAndObject(x, pose, worker, object) {
@@ -190,33 +283,46 @@
     if (object?.type === 'bar') drawBar(object.x, object.progress);
     if (object?.type === 'panel') drawPanel(object.bay, object.row, object.progress, object.xOffset, object.angle);
 
-    line(x - 9, centerY, leftHand[0], leftHand[1], 7, '#f1ad78');
-    line(x + 9, centerY, rightHand[0], rightHand[1], 7, '#f1ad78');
-    ctx.fillStyle = '#f1ad78';
+    ctx.save();
+    ctx.translate(x, ground);
+    ctx.scale(worker.scale, worker.scale);
+    ctx.translate(-x, -ground);
+    line(x - 9, centerY, leftHand[0], leftHand[1], 9, '#b86e4d');
+    line(x + 9, centerY, rightHand[0], rightHand[1], 9, '#b86e4d');
+    line(x - 9, centerY, leftHand[0], leftHand[1], 6.5, '#f2ad79');
+    line(x + 9, centerY, rightHand[0], rightHand[1], 6.5, '#f2ad79');
+    ctx.fillStyle = '#f2ad79';
+    ctx.strokeStyle = '#b86e4d';
+    ctx.lineWidth = 1;
     [leftHand, rightHand].forEach(([handX, handY]) => {
       ctx.beginPath();
-      ctx.arc(handX, handY, 4, 0, Math.PI * 2);
+      ctx.arc(handX, handY, 4.2, 0, Math.PI * 2);
       ctx.fill();
+      ctx.stroke();
     });
 
     if (object?.type === 'drill') {
-      const recoil = Math.sin(object.pulse * Math.PI * 8) * 1.4;
+      const recoil = Math.sin(object.pulse * Math.PI * 8) * 1.2;
       ctx.save();
       ctx.translate(rightHand[0] + recoil, rightHand[1]);
-      ctx.fillStyle = '#f1a800'; roundedRect(-2, -5, 14, 9, 2); ctx.fill();
-      ctx.fillStyle = '#31383c'; ctx.fillRect(10, -2, 11, 3); roundedRect(1, 2, 5, 10, 1); ctx.fill();
+      ctx.fillStyle = '#f0aa00';
+      ctx.strokeStyle = '#936d00';
+      ctx.lineWidth = 1;
+      roundedRect(-2, -5, 13, 9, 2); ctx.fill(); ctx.stroke();
+      ctx.fillStyle = '#2e353a'; ctx.fillRect(9, -2, 9, 3); roundedRect(1, 2, 5, 9, 1); ctx.fill();
       ctx.restore();
       if (object.pulse > .42 && object.pulse < .92) {
         for (let spark = 0; spark < 3; spark += 1) {
           const angle = -1 + spark * .8;
-          line(rightHand[0] + 21, rightHand[1], rightHand[0] + 27 + Math.cos(angle) * 4, rightHand[1] + Math.sin(angle) * 5, 1.4, 'rgba(237,148,0,.82)');
+          line(rightHand[0] + 18, rightHand[1], rightHand[0] + 23 + Math.cos(angle) * 3, rightHand[1] + Math.sin(angle) * 4, 1.2, 'rgba(237,148,0,.82)');
         }
       }
     }
+    ctx.restore();
   }
 
   function render(milliseconds) {
-    const time = (milliseconds / 1000) % cycle;
+    const time = ((milliseconds / 1000) * playbackSpeed) % cycle;
     drawWall();
     const fade = time < .7 ? smooth(time / .7) : time > 30.8 ? 1 - smooth((time - 30.8) / 1.2) : 1;
     ctx.save();
@@ -239,7 +345,7 @@
       const progress = (elapsed - index * 1.625) / 1.625;
       fixedBars = index;
       const startX = index === 0 ? 36 : barXs[index - 1] - 30;
-      const targetX = barXs[index] - 30;
+      const targetX = barXs[index] - 42;
       workerX = progress < .32 ? lerp(startX, targetX, smooth(progress / .32)) : targetX;
       if (progress < .32) {
         object = { type: 'bar', x: workerX + 30, progress: .95 };
@@ -274,15 +380,15 @@
       const bay = Math.floor(index / 2);
       const row = index % 2;
       const panelCenter = (barXs[bay] + barXs[bay + 1]) / 2;
-      const targetX = panelCenter - 72;
+      const targetX = panelCenter - 82;
       const previousBay = Math.floor((index - 1) / 2);
-      const previousX = index === 0 ? -38 : (barXs[previousBay] + barXs[previousBay + 1]) / 2 - 72;
+      const previousX = index === 0 ? -42 : (barXs[previousBay] + barXs[previousBay + 1]) / 2 - 82;
       workerX = progress < .35 ? lerp(previousX, targetX, smooth(progress / .35)) : targetX;
       if (progress < .35) {
-        object = { type: 'panel', bay, row, progress: .92, xOffset: workerX + 50 - panelCenter, angle: .08 };
+        object = { type: 'panel', bay, row, progress: .92, xOffset: workerX + 55 - panelCenter, angle: .08 };
       } else if (progress < .58) {
         pose = 'carryPanel';
-        object = { type: 'panel', bay, row, progress: 1, xOffset: lerp(-22, -8, smooth((progress - .35) / .23)), angle: lerp(.08, -.035, smooth((progress - .35) / .23)) };
+        object = { type: 'panel', bay, row, progress: 1, xOffset: lerp(-27, -8, smooth((progress - .35) / .23)), angle: lerp(.08, -.035, smooth((progress - .35) / .23)) };
       } else if (progress < .9) {
         pose = 'pressPanel';
         const press = smooth((progress - .58) / .32);
