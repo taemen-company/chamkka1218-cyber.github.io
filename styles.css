@@ -741,7 +741,7 @@ footer a {
 
 
 .logo-img {
-  content: url('assets/logo-header-day-matched.png');
+  content: url('assets/logo-header-vector-day.svg');
   width: 57.4px;
   height: auto;
   max-width: none;
@@ -2911,7 +2911,7 @@ html[data-seoul-night="true"] .brand a {
 }
 
 html[data-seoul-night="true"] .brand .logo-img {
-  content: url('assets/logo-header-night.png');
+  content: url('assets/logo-header-vector-night.svg');
   position: static;
   width: 57.4px;
   height: auto;
