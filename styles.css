@@ -1528,6 +1528,26 @@ html[data-seoul-night="true"] #top > .hero {
   clip-path: inset(0 round 16px);
 }
 
+/* CUP cards blend white product photos into the image area. */
+#pvc-wall .cupProductGrid .photoCard {
+  display: flex;
+  flex-direction: column;
+  border-color: #d0d0cc;
+  background: #EAEAE8;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, .08);
+  clip-path: none;
+}
+
+#pvc-wall .cupProductGrid .productPhoto {
+  flex: 0 0 auto;
+  background: #fff;
+}
+
+#pvc-wall .cupProductGrid .photoMeta {
+  flex: 1;
+  background: #EAEAE8;
+}
+
 /* Wall product hero: installation photo with layered contrast for readable copy. */
 .wall-page-title {
   background-image: url("assets/wall-ramp-taemen-hero.webp?v=20260914-final");
