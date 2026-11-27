@@ -1528,6 +1528,25 @@ html[data-seoul-night="true"] #top > .hero {
   clip-path: inset(0 round 16px);
 }
 
+/* Spacing approved in the PVC lineup preview. */
+#pvc-wall > .container > .section-title {
+  margin-bottom: 72px;
+}
+
+#pvc-wall > .container > .section-title[style] {
+  margin-top: 120px !important;
+}
+
+@media (max-width: 640px) {
+  #pvc-wall > .container > .section-title {
+    margin-bottom: 52px;
+  }
+
+  #pvc-wall > .container > .section-title[style] {
+    margin-top: 88px !important;
+  }
+}
+
 /* CUP cards blend white product photos into the image area. */
 #pvc-wall .cupProductGrid .photoCard {
   display: flex;
